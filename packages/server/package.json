@@ -15,5 +15,11 @@
   "devDependencies": {
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@graphql-tools/merge": "^8.3.4",
+    "@graphql-tools/schema": "^9.0.2",
+    "apollo-server": "^3.10.2",
+    "graphql": "^16.6.0"
   }
 }

@@ -1,5 +1,4 @@
 import { GetServerSideProps, NextPage } from "next"
-import AccessibilityRounded from "mui-svg-icons/mui-icons/FileCopyRounded.svg"
 
 import { query } from "../common"
 
@@ -10,7 +9,6 @@ interface Props {
 const Home: NextPage<Props> = ({ files }) => {
   return (
     <div>
-      <AccessibilityRounded />
       {files.map((file, index) => (
         <p key={index}>
           {file.type} {file.name} {file.size}
