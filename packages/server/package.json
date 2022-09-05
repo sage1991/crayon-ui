@@ -1,0 +1,19 @@
+{
+  "name": "@storage/server",
+  "description": "Simple object storage server",
+  "version": "1.0.0",
+  "private": false,
+  "main": "src/index.ts",
+  "license": "MIT",
+  "author": {
+    "name": "harry",
+    "email": "shsage91@gmail.com"
+  },
+  "scripts": {
+    "start": "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}

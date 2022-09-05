@@ -1,0 +1,28 @@
+{
+  "name": "simple-object-storage",
+  "description": "Simple object storage",
+  "private": true,
+  "author": {
+    "name": "harry",
+    "email": "shsage91@gmail.com"
+  },
+  "workspaces": {
+    "packages": ["packages/*"]
+  },
+  "devDependencies": {
+    "@types/node": "18.7.13",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "dotenv": "^16.0.2",
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.1",
+    "prettier": "^2.7.1",
+    "typescript": "4.8.2"
+  }
+}
