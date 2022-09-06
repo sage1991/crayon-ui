@@ -6,7 +6,6 @@
     "extends": [
         "plugin:react/recommended",
         "standard-with-typescript",
-        "next/core-web-vitals",
         "plugin:prettier/recommended"
     ],
     "parserOptions": {
