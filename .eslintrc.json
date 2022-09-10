@@ -9,6 +9,9 @@
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/promise-function-async": "off",
         "@typescript-eslint/return-await": "off",
-        "@typescript-eslint/no-floating-promises": "off"
+        "@typescript-eslint/no-floating-promises": "off",
+        "react/react-in-jsx-scope": "off",
+        "prefer-regex-literals": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 }

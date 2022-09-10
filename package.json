@@ -7,7 +7,9 @@
     "email": "shsage91@gmail.com"
   },
   "workspaces": {
-    "packages": ["packages/*"]
+    "packages": [
+      "packages/*"
+    ]
   },
   "devDependencies": {
     "@types/node": "18.7.13",
