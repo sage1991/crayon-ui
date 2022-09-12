@@ -14,5 +14,9 @@ export const toString = ({ type, value: { red, green, blue }, alpha }: ColorInfo
     return `#${r}${g}${b}${a}`
   }
 
-  return `${type}(${red}, ${green}, ${blue}${alpha ? `, ${alpha}` : ""})`
+  if (typeof alpha === "number" && alpha < 1) {
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`
+  }
+
+  return `rgb(${red}, ${green}, ${blue})`
 }
