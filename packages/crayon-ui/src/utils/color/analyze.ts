@@ -9,7 +9,7 @@ export interface ColorInfo {
 
 const RGBA_REGEX =
   /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(,\s*((0(\.\d+)?)|(1(\.0+)?))\s*)?\)$/
-const HEX_REGEX = /^#((\d|[a-f]){3,4}|((\d|[a-f]){2}){3,4})$/
+const HEX_REGEX = /^#((\d|[a-f]|[A-F]){3,4}|((\d|[a-f]|[A-F]){2}){3,4})$/
 
 export const analyze = (color: string): ColorInfo => {
   let info: ColorInfo | null = null
