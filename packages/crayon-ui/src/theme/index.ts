@@ -1,3 +1,5 @@
 export * from "./Palette"
 export * from "./Font"
 export * from "./Mixin"
+export * from "./Breakpoint"
+export * from "./Media"
