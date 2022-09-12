@@ -1,5 +1,4 @@
 import { CSSProperties } from "react"
-import { css, SerializedStyles } from "@emotion/react"
 
 import { Font } from "./Font"
 
@@ -16,7 +15,7 @@ export namespace Mixin {
     justify = "normal",
     alignment = "normal",
     wrap = "nowrap"
-  }: FlexProps): Readonly<SerializedStyles> => css`
+  }: FlexProps) => `
     display: flex;
     flex-direction: ${direction};
     align-items: ${alignment};
@@ -36,14 +35,14 @@ export namespace Mixin {
     size = "1rem",
     weight = "normal",
     height = "normal"
-  }: TypographyProps): Readonly<SerializedStyles> => css`
+  }: TypographyProps) => `
     font-family: ${font};
     font-size: ${size};
     font-weight: ${weight};
     line-height: ${height};
   `
 
-  export const absoluteFill: Readonly<SerializedStyles> = css`
+  export const absoluteFill = `
     position: absolute;
     inset: 0;
   `
