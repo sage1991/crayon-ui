@@ -14,6 +14,12 @@
         "prefer-regex-literals": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
         "react/display-name": "off",
-        "@typescript-eslint/no-base-to-string": "off"
+        "@typescript-eslint/no-base-to-string": "off",
+        "react/no-unknown-property": [
+            "error",
+            {
+                "ignore": ["css"]
+            }
+        ]
     }
 }
