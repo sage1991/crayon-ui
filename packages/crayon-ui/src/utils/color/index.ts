@@ -1,4 +1,6 @@
+export * from "./alpha"
 export * from "./analyze"
+export * from "./calculateContrastRatio"
 export * from "./darken"
 export * from "./emphasize"
 export * from "./hsl"
