@@ -29,7 +29,7 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
       
       :hover {
         box-shadow: ${Shadow.medium};
-        background-color: ${darken(theme.palette[color].main, 0.1)};
+        background-color: ${darken(theme.palette[color].main)};
       }
     `
   }
