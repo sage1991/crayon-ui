@@ -4,7 +4,9 @@ declare module "@emotion/react" {
   type ColorVariant = "primary" | "secondary" | "warning" | "error" | "success" | "text"
 
   interface ColorTheme {
+    dark: string
     main: string
+    light: string
     contrast: string
   }
 

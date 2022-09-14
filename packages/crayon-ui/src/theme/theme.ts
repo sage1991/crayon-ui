@@ -7,27 +7,39 @@ import { ZIndex } from "./ZIndex"
 export const theme: Theme = {
   palette: {
     primary: {
+      light: Palette.pink["300"],
       main: Palette.pink["500"],
+      dark: Palette.pink["700"],
       contrast: Palette.white
     },
     secondary: {
+      light: Palette.blue["300"],
       main: Palette.blue["500"],
+      dark: Palette.blue["700"],
       contrast: Palette.white
     },
     warning: {
+      light: Palette.orange["300"],
       main: Palette.orange["500"],
+      dark: Palette.orange["700"],
       contrast: Palette.white
     },
     error: {
+      light: Palette.red["300"],
       main: Palette.red["500"],
+      dark: Palette.red["700"],
       contrast: Palette.white
     },
     success: {
+      light: Palette.green["300"],
       main: Palette.green["500"],
+      dark: Palette.green["700"],
       contrast: Palette.white
     },
     text: {
+      light: Palette.gray["700"],
       main: Palette.gray["900"],
+      dark: Palette.black,
       contrast: Palette.white
     }
   },
