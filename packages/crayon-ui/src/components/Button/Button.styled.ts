@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { ColorVariant } from "@emotion/react"
 
 import { Mixin, Palette, Radius, Shadow } from "../../theme"
-import { alpha, darken } from "../../utils"
+import { alpha } from "../../utils"
 
 interface ButtonRootProps {
   color: ColorVariant
@@ -17,6 +17,9 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
     cursor: pointer;
     border-radius: ${Radius.xs}px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
   `
 
   if (variant === "contained") {
@@ -29,7 +32,7 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
       
       :hover {
         box-shadow: ${Shadow.medium};
-        background-color: ${darken(theme.palette[color].main)};
+        background-color: ${theme.palette[color].dark};
       }
     `
   }
@@ -43,7 +46,7 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
       border: 1px solid ${theme.palette[color].main};
       
       :hover {
-        background-color: ${alpha(theme.palette[color].main, 0.05)};
+        background-color: ${alpha(theme.palette[color].light)};
       }
     `
   }
@@ -55,7 +58,7 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
     transition: background-color 300ms;
     
     :hover {
-      background-color: ${alpha(theme.palette[color].main, 0.05)};
+      background-color: ${alpha(theme.palette[color].light)};
     }
     `
 })
