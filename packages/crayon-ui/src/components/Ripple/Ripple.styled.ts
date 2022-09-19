@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 import { ColorVariant, css, keyframes } from "@emotion/react"
 
-import { alpha } from "../../utils"
 import { Mixin } from "../../theme"
 
 export const RippleRoot = styled("span")`
@@ -23,7 +22,7 @@ export const RippleEffect = styled("span")<RippleEffectProps>(
     ${Mixin.absoluteFill}
     left: ${cx - radius}px;
     top: ${cy - radius}px;
-    background-color: ${alpha(theme.palette[color].light, 0.5)};
+    background-color: ${theme.palette[color].light};
     border-radius: ${radius}px;
     width: ${radius * 2}px;
     height: ${radius * 2}px;
@@ -34,29 +33,27 @@ export const RippleEffect = styled("span")<RippleEffectProps>(
 
 const scaleOut = keyframes`
   0% {
-    opacity: 0.7;
     transform: scale(0);
   }
 
   100% {
-    opacity: 1;
     transform: scale(1);
   }
 `
 
 const fadeIn = keyframes`
   0% {
-    opacity: 0.7;
+    opacity: 0.2;
   }
 
   100% {
-    opacity: 1;
+    opacity: 0.4;
   }
 `
 
 export const fadeOut = keyframes`
   0% {
-    opacity: 1;
+    opacity: 0.4;
   }
 
   100% {
