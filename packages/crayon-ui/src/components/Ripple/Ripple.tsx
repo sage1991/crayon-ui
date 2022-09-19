@@ -1,4 +1,4 @@
-import { FC, memo, PointerEvent, useRef, useState, AnimationEvent } from "react"
+import { FC, memo, PointerEvent, useRef, useState, AnimationEvent, useCallback } from "react"
 import { ColorVariant } from "@emotion/react"
 
 import { useMeasure } from "../../hooks"
@@ -15,13 +15,16 @@ export const Ripple: FC<Props> = memo(({ color = "primary", center }) => {
   const { ref, rect } = useMeasure()
   const [effects, setEffects] = useState<JSX.Element[]>([])
 
-  const removeRippleByKey = (key: string) => (e: AnimationEvent) => {
-    if (e.animationName === fadeOut.name) {
-      setEffects((prev) => prev.filter((effect) => effect.key !== key))
-    }
-  }
+  const removeRippleByKey = useCallback(
+    (key: string) => (e: AnimationEvent) => {
+      if (e.animationName === fadeOut.name) {
+        setEffects((prev) => prev.filter((effect) => effect.key !== key))
+      }
+    },
+    []
+  )
 
-  const hideEffect = () => {
+  const hideEffect = useCallback(() => {
     if (!currentRippleKey.current) {
       return
     }
@@ -42,26 +45,29 @@ export const Ripple: FC<Props> = memo(({ color = "primary", center }) => {
         )
       })
     )
-  }
+  }, [removeRippleByKey])
 
-  const showEffect = ({ clientX, clientY }: PointerEvent<HTMLSpanElement>) => {
-    if (currentRippleKey.current) {
-      hideEffect()
-    }
+  const showEffect = useCallback(
+    ({ clientX, clientY }: PointerEvent<HTMLSpanElement>) => {
+      if (currentRippleKey.current) {
+        hideEffect()
+      }
 
-    const { left, top, width, height } = rect.current
-    const cx = center ? width / 2 : clientX - left
-    const cy = center ? height / 2 : clientY - top
-    const radius = Math.sqrt(
-      Math.pow(Math.max(cx, width - cx), 2) + Math.pow(Math.max(cy, height - cy), 2)
-    )
-    const key = `${performance.now()}`
-    currentRippleKey.current = key
-    setEffects((prev) => [
-      ...prev,
-      <RippleEffect key={key} color={color} radius={radius} cx={cx} cy={cy} />
-    ])
-  }
+      const { left, top, width, height } = rect.current
+      const cx = center ? width / 2 : clientX - left
+      const cy = center ? height / 2 : clientY - top
+      const radius = Math.sqrt(
+        Math.pow(Math.max(cx, width - cx), 2) + Math.pow(Math.max(cy, height - cy), 2)
+      )
+      const key = `${performance.now()}`
+      currentRippleKey.current = key
+      setEffects((prev) => [
+        ...prev,
+        <RippleEffect key={key} color={color} radius={radius} cx={cx} cy={cy} />
+      ])
+    },
+    [hideEffect]
+  )
 
   return (
     <RippleRoot
