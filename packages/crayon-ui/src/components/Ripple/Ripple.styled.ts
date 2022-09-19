@@ -7,6 +7,7 @@ export const RippleRoot = styled("span")`
   ${Mixin.absoluteFill}
   overflow: hidden;
   z-index: 0;
+  border-radius: inherit;
 `
 
 interface RippleEffectProps {
