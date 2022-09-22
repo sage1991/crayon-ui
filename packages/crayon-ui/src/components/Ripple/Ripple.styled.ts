@@ -27,7 +27,7 @@ export const RippleEffect = styled("span")<RippleEffectProps>(
     border-radius: ${radius}px;
     width: ${radius * 2}px;
     height: ${radius * 2}px;
-    animation: ${scaleOut} 350ms ease-in-out, ${mount ? fadeIn : fadeOut} 350ms ease-in-out;
+    animation: ${scaleOut} 500ms ease-in-out, ${mount ? fadeIn : fadeOut} 500ms ease-in-out;
     animation-fill-mode: forwards;
   `
 )
