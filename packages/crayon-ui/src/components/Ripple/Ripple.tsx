@@ -1,4 +1,13 @@
-import { FC, memo, PointerEvent, useRef, useState, AnimationEvent, useCallback } from "react"
+import {
+  FC,
+  memo,
+  PointerEvent,
+  useRef,
+  useState,
+  AnimationEvent,
+  useCallback,
+  ReactNode
+} from "react"
 import { ColorVariant } from "@emotion/react"
 
 import { useMeasure } from "../../hooks"
@@ -8,9 +17,10 @@ import { fadeOut, RippleEffect, RippleRoot } from "./Ripple.styled"
 interface Props {
   color?: ColorVariant
   center?: boolean
+  children?: ReactNode
 }
 
-export const Ripple: FC<Props> = memo(({ color = "primary", center }) => {
+export const Ripple: FC<Props> = memo(({ color = "primary", center, children }) => {
   const currentRippleKey = useRef<string | null>()
   const { ref, rect } = useMeasure()
   const [effects, setEffects] = useState<JSX.Element[]>([])
@@ -77,6 +87,7 @@ export const Ripple: FC<Props> = memo(({ color = "primary", center }) => {
       onPointerUp={hideEffect}
     >
       {effects}
+      {children}
     </RippleRoot>
   )
 })
