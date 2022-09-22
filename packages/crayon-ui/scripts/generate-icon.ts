@@ -4,7 +4,7 @@ import path from "path"
 
 const iconRoot = path.resolve(__dirname, "../icons")
 const dist = path.resolve(__dirname, "../src/icons")
-const index = path.resolve(__dirname, "../src/icons/index.ts")
+const index = `${dist}/index.ts`
 
 const generateCodeFromSvg = async (fileName: string) => {
   const componentName = fileName.replace(".svg", "")
