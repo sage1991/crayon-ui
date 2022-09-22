@@ -12,7 +12,8 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "generate-icon": "ts-node ./scripts/generate-icon.ts && yarn eslint --fix ./src/icons/*"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -33,6 +34,7 @@
     "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
+    "@svgr/core": "^6.3.1",
     "@types/jest": "^29.0.0",
     "@types/react": "^18.0.18",
     "babel-loader": "^8.2.5",
