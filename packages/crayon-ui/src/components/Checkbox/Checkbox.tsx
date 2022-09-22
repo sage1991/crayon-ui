@@ -3,9 +3,9 @@ import { Interpolation } from "@emotion/serialize"
 import { ColorVariant, Theme } from "@emotion/react"
 
 import { CheckBoxOutlineBlankRounded, CheckBoxRounded } from "../../icons"
+import { Ripple } from "../Ripple"
 
 import { CheckboxRoot, Input } from "./Checkbox.styled"
-import { Ripple } from "../Ripple"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant

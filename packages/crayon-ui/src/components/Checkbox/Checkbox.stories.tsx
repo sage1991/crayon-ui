@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ChangeEventHandler, useState } from "react"
 
 import { Checkbox } from "./Checkbox"
-import { ChangeEventHandler, useState } from "react"
 
 const meta: ComponentMeta<typeof Checkbox> = {
   title: "Checkbox",
