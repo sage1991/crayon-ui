@@ -22,5 +22,8 @@ export const CheckboxRoot = styled("div")<CheckboxRootProps>`
 
 export const Input = styled("input")`
   ${Mixin.absoluteFill}
+  margin: 0;
+  padding: 0;
   opacity: 0;
+  cursor: pointer;
 `
