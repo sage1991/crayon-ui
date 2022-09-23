@@ -29,7 +29,6 @@ const Template: ComponentStory<typeof Ripple> = (props) => {
             border: 1px solid ${Palette.gray["600"]};
             border-radius: ${Radius.xl}px;
             position: relative;
-            cursor: pointer;
             margin-right: 15px;
             overflow: hidden;
           `}
