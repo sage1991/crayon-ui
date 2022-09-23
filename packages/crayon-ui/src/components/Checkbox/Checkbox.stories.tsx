@@ -47,23 +47,23 @@ CustomIcon.args = {
   checkedIcon: <FavoriteRounded />
 }
 
-export const WithAnimation = Template.bind({})
-WithAnimation.args = {
+export const CustomAnimation = Template.bind({})
+CustomAnimation.args = {
   icon: <StarOutlineRounded />,
   checkedIcon: (
     <StarRounded
       css={css`
         animation: ${keyframes`
           0% {
-            transform: scale(1);
+            transform: rotateY(0);
           }
           50% {
-            transform: scale(1.2);
+            transform: rotateY(180deg);
           }
           100% {
-            transform: scale(1);
+            transform: rotateY(180deg);
           }
-        `} 300ms ease-in-out;
+        `} 500ms ease-in-out;
       `}
     />
   )

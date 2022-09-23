@@ -2,10 +2,10 @@ import { forwardRef, InputHTMLAttributes } from "react"
 import { Interpolation } from "@emotion/serialize"
 import { ColorVariant, Theme } from "@emotion/react"
 
-import { CheckBoxOutlineBlankRounded, CheckBoxRounded } from "../../icons"
+import { CheckBoxOutlineBlankRounded } from "../../icons"
 import { Ripple } from "../Ripple"
 
-import { CheckboxRoot, Input } from "./Checkbox.styled"
+import { AnimatedCheckBoxRounded, CheckboxRoot, Input } from "./Checkbox.styled"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
@@ -20,7 +20,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
     style,
     className,
     icon = <CheckBoxOutlineBlankRounded />,
-    checkedIcon = <CheckBoxRounded />,
+    checkedIcon = <AnimatedCheckBoxRounded />,
     disabled = false,
     color = "primary",
     checked,

@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
-import { ColorVariant } from "@emotion/react"
+import { ColorVariant, keyframes } from "@emotion/react"
 
 import { Mixin } from "../../theme"
 import { alpha } from "../../utils"
+import { CheckBoxRounded } from "../../icons"
 
 interface CheckboxRootProps {
   color: ColorVariant
@@ -27,4 +28,20 @@ export const Input = styled("input")`
   opacity: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+`
+
+const bounce = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
+
+export const AnimatedCheckBoxRounded = styled(CheckBoxRounded)`
+  animation: ${bounce} 300ms ease-in-out;
 `
