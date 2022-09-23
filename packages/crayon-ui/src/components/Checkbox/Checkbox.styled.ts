@@ -26,4 +26,5 @@ export const Input = styled("input")`
   padding: 0;
   opacity: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 `
