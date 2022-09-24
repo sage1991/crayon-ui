@@ -15,6 +15,9 @@ export const Switch: FC<Props> = ({ color = "primary", checked = false, ...props
     <SwitchRoot color={color} checked={checked}>
       <Thumb
         css={css`
+          aspect-ratio: 1;
+          width: 50%;
+          height: auto;
           background-color: ${Palette.white};
           transition: transform 300ms;
           transform: ${checked ? "translateX(100%)" : "translate(0)"};
