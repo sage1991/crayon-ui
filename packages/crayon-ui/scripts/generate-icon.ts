@@ -2,13 +2,13 @@ import { transform, Config } from "@svgr/core"
 import fs from "fs/promises"
 import path from "path"
 
-const iconRoot = path.resolve(__dirname, "../icons")
-const dist = path.resolve(__dirname, "../src/icons")
+const resources = path.resolve(__dirname, "../src/components/icons/resources")
+const dist = path.resolve(__dirname, "../src/components/icons/generated")
 const index = `${dist}/index.ts`
 
 const generateCodeFromSvg = async (fileName: string) => {
   const componentName = fileName.replace(".svg", "")
-  const svg = await fs.readFile(`${iconRoot}/${fileName}`, { encoding: "utf-8" })
+  const svg = await fs.readFile(`${resources}/${fileName}`, { encoding: "utf-8" })
   const code = await transform(
     svg,
     { typescript: true, template, jsxRuntime: "classic" },
@@ -36,7 +36,7 @@ const main = async () => {
   }
   await fs.mkdir(dist)
 
-  const iconNames = await fs.readdir(iconRoot)
+  const iconNames = await fs.readdir(resources)
   await Promise.all(iconNames.map(generateCodeFromSvg))
   await Promise.all(
     iconNames.map((name) => fs.appendFile(index, `export * from "./${name.replace(".svg", "")}"\n`))

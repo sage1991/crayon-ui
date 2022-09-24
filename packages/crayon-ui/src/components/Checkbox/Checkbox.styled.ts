@@ -3,7 +3,7 @@ import { ColorVariant, keyframes } from "@emotion/react"
 
 import { Mixin } from "../../theme"
 import { alpha } from "../../utils"
-import { CheckBoxRounded } from "../../icons"
+import { CheckBoxRounded } from "../icons"
 
 interface CheckboxRootProps {
   color: ColorVariant

@@ -2,7 +2,7 @@ import { forwardRef, InputHTMLAttributes } from "react"
 import { Interpolation } from "@emotion/serialize"
 import { ColorVariant, Theme } from "@emotion/react"
 
-import { CheckBoxOutlineBlankRounded } from "../../icons"
+import { CheckBoxOutlineBlankRounded } from "../icons"
 import { Ripple } from "../Ripple"
 
 import { AnimatedCheckBoxRounded, CheckboxRoot, Input } from "./Checkbox.styled"

@@ -5,12 +5,7 @@ import { css, keyframes } from "@emotion/react"
 import { Checkbox } from "./Checkbox"
 
 import { Mixin } from "../../theme"
-import {
-  FavoriteBorderRounded,
-  FavoriteRounded,
-  StarOutlineRounded,
-  StarRounded
-} from "../../icons"
+import { FavoriteBorderRounded, FavoriteRounded, StarOutlineRounded, StarRounded } from "../icons"
 
 const meta: ComponentMeta<typeof Checkbox> = {
   title: "Checkbox",

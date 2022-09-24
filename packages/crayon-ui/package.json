@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest --watch",
-    "generate-icon": "ts-node ./scripts/generate-icon.ts && yarn eslint --fix ./src/icons/*"
+    "generate-icon": "ts-node ./scripts/generate-icon.ts && yarn eslint --fix ./src/components/icons/generated/*"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
