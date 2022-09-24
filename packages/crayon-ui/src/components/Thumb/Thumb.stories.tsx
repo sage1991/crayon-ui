@@ -20,10 +20,12 @@ const Template: ComponentStory<typeof Thumb> = (props) => {
     "warning",
     "text"
   ]
+
   return (
     <div
       css={css`
         ${Mixin.flex({ direction: "row" })}
+        gap: 15px;
       `}
     >
       {colorVariants.map((color) => (
