@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+
 import { Mixin, Palette, ZIndex } from "../../theme"
 
 export const ModalRoot = styled("div")`
@@ -8,6 +9,6 @@ export const ModalRoot = styled("div")`
 `
 
 export const ModalContents = styled("div")`
+  ${Mixin.flex({ direction: "column" })}
   background-color: ${Palette.white};
-  z-index: 1;
 `

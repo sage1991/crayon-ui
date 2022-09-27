@@ -1,9 +1,11 @@
 import { FC, HTMLAttributes, MouseEventHandler, ReactNode } from "react"
 import { createPortal } from "react-dom"
 import { Transition } from "react-transition-group"
+import { css } from "@emotion/react"
 
 import { Backdrop } from "../Backdrop"
 import { isServerSide } from "../../utils"
+import { Fade } from "../Fade"
 
 import { ModalContents, ModalRoot } from "./Modal.styled"
 
@@ -24,10 +26,15 @@ export const Modal: FC<Props> = ({ open = false, onBackdropClick, children, ...p
         createPortal(
           <ModalRoot>
             <Backdrop
+              css={css`
+                z-index: -1;
+              `}
               open={status === "entering" || status === "entered"}
               onClick={onBackdropClick}
             />
-            <ModalContents {...props}>{children}</ModalContents>
+            <Fade in={status === "entering" || status === "entered"} timeout={300} unmountOnExit>
+              <ModalContents {...props}>{children}</ModalContents>
+            </Fade>
           </ModalRoot>,
           document.body
         )
