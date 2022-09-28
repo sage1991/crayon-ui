@@ -1,21 +1,17 @@
-import { cloneElement, FC } from "react"
-import { Transition } from "react-transition-group"
+import { FC } from "react"
 
 import { TransitionProps } from "../types"
+import { TweenTransition } from "../TweenTransition"
+
+const animation = {
+  begin: { opacity: 0 },
+  end: { opacity: 1 }
+}
 
 type Props = TransitionProps
 
 export const Fade: FC<Props> = ({ children, timeout, ...rest }) => (
-  <Transition {...rest} timeout={timeout}>
-    {(status) =>
-      cloneElement(children, {
-        ...children.props,
-        style: {
-          ...children.props.style,
-          transition: `opacity ${timeout}ms`,
-          opacity: status === "entered" || status === "entering" ? 1 : 0
-        }
-      })
-    }
-  </Transition>
+  <TweenTransition {...rest} {...animation} transition="opacity 300ms" timeout={timeout}>
+    {children}
+  </TweenTransition>
 )

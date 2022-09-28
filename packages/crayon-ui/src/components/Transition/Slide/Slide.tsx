@@ -1,12 +1,25 @@
-import { Transition } from "react-transition-group"
-import { cloneElement, FC } from "react"
+import { FC } from "react"
+
+import { TweenTransition } from "../TweenTransition"
 import { TransitionProps } from "../types"
 
-const transform = {
-  up: { to: "translateY(0)", from: "translateY(100%)" },
-  down: { to: "translateY(0)", from: "translateY(-100%)" },
-  right: { to: "translateX(0)", from: "translateX(-100%)" },
-  left: { to: "translateX(0)", from: "translateX(100%)" }
+const animation = {
+  up: {
+    end: { transform: "translateY(0)", opacity: 1 },
+    begin: { transform: "translateY(100%)", opacity: 0 }
+  },
+  down: {
+    end: { transform: "translateY(0)", opacity: 1 },
+    begin: { transform: "translateY(-100%)", opacity: 0 }
+  },
+  right: {
+    end: { transform: "translateX(0)", opacity: 1 },
+    begin: { transform: "translateX(-100%)", opacity: 0 }
+  },
+  left: {
+    end: { transform: "translateX(0)", opacity: 1 },
+    begin: { transform: "translateX(100%)", opacity: 0 }
+  }
 }
 
 interface Props extends TransitionProps {
@@ -14,20 +27,12 @@ interface Props extends TransitionProps {
 }
 
 export const Slide: FC<Props> = ({ children, timeout, direction = "up", ...rest }) => (
-  <Transition {...rest} timeout={timeout}>
-    {(status) =>
-      cloneElement(children, {
-        ...children.props,
-        style: {
-          ...children.props.style,
-          transition: `transform ${timeout}ms, opacity ${timeout}ms`,
-          transform:
-            status === "entered" || status === "entering"
-              ? transform[direction].to
-              : transform[direction].from,
-          opacity: status === "entered" || status === "entering" ? 1 : 0
-        }
-      })
-    }
-  </Transition>
+  <TweenTransition
+    {...rest}
+    {...animation[direction]}
+    transition={`transform ${timeout}ms, opacity ${timeout}ms`}
+    timeout={timeout}
+  >
+    {children}
+  </TweenTransition>
 )
