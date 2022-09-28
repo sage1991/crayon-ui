@@ -8,15 +8,17 @@ export namespace Mixin {
     alignment?: CSSProperties["alignItems"]
     justify?: CSSProperties["justifyContent"]
     wrap?: CSSProperties["flexWrap"]
+    inline?: boolean
   }
 
   export const flex = ({
     direction = "row",
     justify = "normal",
     alignment = "normal",
-    wrap = "nowrap"
+    wrap = "nowrap",
+    inline = false
   }: FlexProps) => `
-    display: flex;
+    display: ${inline ? "inline-flex" : "flex"};
     flex-direction: ${direction};
     align-items: ${alignment};
     justify-content: ${justify};
