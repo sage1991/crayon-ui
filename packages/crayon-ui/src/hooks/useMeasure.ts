@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 
-export const useMeasure = () => {
-  const ref = useRef<HTMLElement>(null)
+export const useMeasure = <T extends HTMLElement = HTMLElement>() => {
+  const ref = useRef<T>(null)
   const rect = useRef<Omit<DOMRectReadOnly, "toJSON">>({
     top: 0,
     left: 0,
