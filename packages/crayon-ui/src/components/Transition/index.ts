@@ -1,3 +1,5 @@
+export * from "./TweenTransition"
 export * from "./Fade"
 export * from "./Slide"
+export * from "./Focus"
 export * from "./types"
