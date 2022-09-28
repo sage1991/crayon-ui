@@ -10,9 +10,15 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
 }
 
-export const Switch: FC<Props> = ({ color = "primary", checked = false, ...props }) => {
+export const Switch: FC<Props> = ({
+  color = "primary",
+  checked = false,
+  style,
+  className,
+  ...props
+}) => {
   return (
-    <SwitchRoot color={color} checked={checked}>
+    <SwitchRoot style={style} className={className} color={color} checked={checked}>
       <Thumb
         css={css`
           aspect-ratio: 1;
