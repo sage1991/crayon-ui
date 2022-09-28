@@ -5,7 +5,7 @@ import { TweenTransition } from "../TweenTransition"
 
 const animation = {
   begin: {
-    transform: "scale(1.2)",
+    transform: "scale(1.1)",
     opacity: 0
   },
   end: {
