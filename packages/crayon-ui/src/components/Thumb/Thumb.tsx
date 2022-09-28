@@ -10,7 +10,7 @@ interface Props {
 
 export const Thumb = styled("div")<Props>(
   ({ theme, color = "primary" }) => `
-  ${Mixin.flex({ alignment: "center", justify: "center" })}
+  ${Mixin.flex({ inline: true, alignment: "center", justify: "center" })}
   position: relative;
   width: 20px;
   height: 20px;

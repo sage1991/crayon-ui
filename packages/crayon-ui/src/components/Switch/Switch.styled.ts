@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const SwitchRoot = styled("div")<Props>`
-  ${Mixin.flex({ alignment: "center" })}
+  ${Mixin.flex({ inline: true, alignment: "center" })}
   position: relative;
   width: 40px;
   padding: 2px;
