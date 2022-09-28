@@ -17,7 +17,7 @@ export namespace Mixin {
     alignment = "normal",
     wrap = "nowrap",
     inline = false
-  }: FlexProps) => `
+  }: FlexProps = {}) => `
     display: ${inline ? "inline-flex" : "flex"};
     flex-direction: ${direction};
     align-items: ${alignment};
