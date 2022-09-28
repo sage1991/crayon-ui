@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from "react"
 
-import { Fade } from "../Fade"
+import { Fade } from "../Transition"
 
 import { BackdropRoot } from "./Backdrop.styled"
 

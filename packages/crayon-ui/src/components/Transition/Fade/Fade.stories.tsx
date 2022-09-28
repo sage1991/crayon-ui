@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 
 import { Fade } from "./Fade"
-import { Switch } from "../Switch"
+import { Switch } from "../../Switch"
 
 const meta: ComponentMeta<typeof Fade> = {
   title: "Fade",

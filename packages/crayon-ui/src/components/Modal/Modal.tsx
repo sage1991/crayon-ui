@@ -1,11 +1,11 @@
-import { FC, HTMLAttributes, MouseEventHandler, ReactNode } from "react"
+import { ComponentType, FC, HTMLAttributes, MouseEventHandler, ReactNode } from "react"
 import { createPortal } from "react-dom"
-import { Transition } from "react-transition-group"
 import { css } from "@emotion/react"
+import { Transition } from "react-transition-group"
 
 import { Backdrop } from "../Backdrop"
+import { Fade, TransitionProps } from "../Transition"
 import { isServerSide } from "../../utils"
-import { Fade } from "../Fade"
 
 import { ModalContents, ModalRoot } from "./Modal.styled"
 
@@ -13,9 +13,16 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   open?: boolean
   onBackdropClick?: MouseEventHandler<HTMLDivElement>
   children?: ReactNode
+  TransitionEffect?: ComponentType<TransitionProps>
 }
 
-export const Modal: FC<Props> = ({ open = false, onBackdropClick, children, ...props }) => {
+export const Modal: FC<Props> = ({
+  open = false,
+  onBackdropClick,
+  TransitionEffect = Fade,
+  children,
+  ...props
+}) => {
   if (isServerSide()) {
     return null
   }
@@ -32,9 +39,13 @@ export const Modal: FC<Props> = ({ open = false, onBackdropClick, children, ...p
               open={status === "entering" || status === "entered"}
               onClick={onBackdropClick}
             />
-            <Fade in={status === "entering" || status === "entered"} timeout={300} unmountOnExit>
+            <TransitionEffect
+              in={status === "entering" || status === "entered"}
+              timeout={300}
+              unmountOnExit
+            >
               <ModalContents {...props}>{children}</ModalContents>
-            </Fade>
+            </TransitionEffect>
           </ModalRoot>,
           document.body
         )

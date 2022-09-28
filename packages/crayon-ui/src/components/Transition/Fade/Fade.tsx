@@ -1,13 +1,11 @@
-import { cloneElement } from "react"
+import { cloneElement, FC } from "react"
 import { Transition } from "react-transition-group"
-import { TimeoutProps } from "react-transition-group/Transition"
 
-interface Props<T extends HTMLElement> extends TimeoutProps<T> {
-  timeout: number
-  children: JSX.Element
-}
+import { TransitionProps } from "../types"
 
-export const Fade = <T extends HTMLElement>({ children, timeout, ...rest }: Props<T>) => (
+type Props = TransitionProps
+
+export const Fade: FC<Props> = ({ children, timeout, ...rest }) => (
   <Transition {...rest} timeout={timeout}>
     {(status) =>
       cloneElement(children, {

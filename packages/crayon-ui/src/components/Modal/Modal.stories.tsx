@@ -5,6 +5,7 @@ import { css } from "@emotion/react"
 import { Modal } from "./Modal"
 import { Button } from "../Button"
 import { Radius } from "../../theme"
+import { Slide } from "../Transition"
 
 const meta: ComponentMeta<typeof Modal> = {
   title: "Modal",
@@ -46,3 +47,8 @@ const Template: ComponentStory<typeof Modal> = (props) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const SlideEffect = Template.bind({})
+SlideEffect.args = {
+  TransitionEffect: Slide
+}
