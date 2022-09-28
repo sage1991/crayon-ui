@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof Slide> = (props) => {
       />
       <div
         css={css`
-          ${Mixin.flex({})}
+          ${Mixin.flex()}
           gap: 20px;
         `}
       >
