@@ -7,7 +7,7 @@ import { Switch } from "../../Switch"
 import { Palette, Radius } from "../../../theme"
 
 const meta: ComponentMeta<typeof Focus> = {
-  title: "Focus",
+  title: "Transition/Focus",
   component: Focus
 }
 

@@ -7,7 +7,7 @@ import { Mixin, Palette, Radius } from "../../../theme"
 import { Switch } from "../../Switch"
 
 const meta: ComponentMeta<typeof TweenTransition> = {
-  title: "StyleTransition",
+  title: "Transition/StyleTransition",
   component: TweenTransition
 }
 

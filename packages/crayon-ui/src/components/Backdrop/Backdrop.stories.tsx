@@ -5,7 +5,7 @@ import { Backdrop } from "./Backdrop"
 import { Button } from "../Button"
 
 const meta: ComponentMeta<typeof Backdrop> = {
-  title: "Backdrop",
+  title: "UI/Backdrop",
   component: Backdrop
 }
 

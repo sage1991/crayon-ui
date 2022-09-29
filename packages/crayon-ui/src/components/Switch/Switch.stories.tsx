@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from "react"
 import { Switch } from "./Switch"
 
 const meta: ComponentMeta<typeof Switch> = {
-  title: "Switch",
+  title: "UI/Switch",
   component: Switch
 }
 

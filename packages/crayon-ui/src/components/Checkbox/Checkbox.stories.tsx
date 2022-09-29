@@ -6,7 +6,7 @@ import { Checkbox } from "./Checkbox"
 import { FavoriteBorderRounded, FavoriteRounded, StarOutlineRounded, StarRounded } from "../icons"
 
 const meta: ComponentMeta<typeof Checkbox> = {
-  title: "Checkbox",
+  title: "UI/Checkbox",
   component: Checkbox
 }
 

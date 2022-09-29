@@ -5,7 +5,7 @@ import { Mixin, Palette, Radius } from "../../theme"
 import { Ripple } from "./Ripple"
 
 const meta: ComponentMeta<typeof Ripple> = {
-  title: "Ripple",
+  title: "UI/Ripple",
   component: Ripple
 }
 

@@ -8,7 +8,7 @@ import { Radius } from "../../theme"
 import { Slide } from "../Transition"
 
 const meta: ComponentMeta<typeof Modal> = {
-  title: "Modal",
+  title: "UI/Modal",
   component: Modal
 }
 

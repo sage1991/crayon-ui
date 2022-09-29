@@ -4,7 +4,7 @@ import { ColorVariant } from "@emotion/react"
 import { Thumb } from "./Thumb"
 
 const meta: ComponentMeta<typeof Thumb> = {
-  title: "Thumb",
+  title: "UI/Thumb",
   component: Thumb
 }
 

@@ -7,7 +7,7 @@ import { Switch } from "../../Switch"
 import { Palette, Radius } from "../../../theme"
 
 const meta: ComponentMeta<typeof Collapse> = {
-  title: "Collapse",
+  title: "Transition/Collapse",
   component: Collapse
 }
 

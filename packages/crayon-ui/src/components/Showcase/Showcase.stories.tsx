@@ -5,7 +5,7 @@ import { Showcase } from "./Showcase"
 import { Palette, Radius } from "../../theme"
 
 const meta: ComponentMeta<typeof Showcase> = {
-  title: "Showcase",
+  title: "UI/Showcase",
   component: Showcase
 }
 

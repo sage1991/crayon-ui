@@ -7,7 +7,7 @@ import { Switch } from "../../Switch"
 import { Mixin, Palette, Radius } from "../../../theme"
 
 const meta: ComponentMeta<typeof Slide> = {
-  title: "Slide",
+  title: "Transition/Slide",
   component: Slide
 }
 

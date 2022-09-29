@@ -5,7 +5,7 @@ import { Fade } from "./Fade"
 import { Switch } from "../../Switch"
 
 const meta: ComponentMeta<typeof Fade> = {
-  title: "Fade",
+  title: "Transition/Fade",
   component: Fade
 }
 
