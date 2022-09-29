@@ -1,9 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ColorVariant, css } from "@emotion/react"
+import { ColorVariant } from "@emotion/react"
 import { ChangeEvent, useState } from "react"
 
 import { Switch } from "./Switch"
-import { Mixin } from "../../theme"
 
 const meta: ComponentMeta<typeof Switch> = {
   title: "Switch",
@@ -26,16 +25,11 @@ const Template: ComponentStory<typeof Switch> = (props) => {
   const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => setChecked(target.checked)
 
   return (
-    <div
-      css={css`
-        ${Mixin.flex({ direction: "row" })}
-        gap: 10px;
-      `}
-    >
+    <>
       {colorVariants.map((color) => (
         <Switch {...props} key={color} color={color} checked={checked} onChange={onChange} />
       ))}
-    </div>
+    </>
   )
 }
 

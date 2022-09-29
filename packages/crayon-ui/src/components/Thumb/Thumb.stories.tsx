@@ -1,8 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ColorVariant, css } from "@emotion/react"
+import { ColorVariant } from "@emotion/react"
 
 import { Thumb } from "./Thumb"
-import { Mixin } from "../../theme"
 
 const meta: ComponentMeta<typeof Thumb> = {
   title: "Thumb",
@@ -22,16 +21,11 @@ const Template: ComponentStory<typeof Thumb> = (props) => {
   ]
 
   return (
-    <div
-      css={css`
-        ${Mixin.flex({ direction: "row" })}
-        gap: 15px;
-      `}
-    >
+    <>
       {colorVariants.map((color) => (
         <Thumb key={color} color={color} {...props} />
       ))}
-    </div>
+    </>
   )
 }
 

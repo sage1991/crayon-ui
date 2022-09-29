@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof Modal> = (props) => {
   const closeModal = () => setOpen(false)
 
   return (
-    <div>
+    <>
       <Button onClick={openModal}>OPEN MODAL</Button>
       <Modal
         {...props}
@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof Modal> = (props) => {
         </h1>
         <Button onClick={closeModal}>CLOSE MODAL</Button>
       </Modal>
-    </div>
+    </>
   )
 }
 

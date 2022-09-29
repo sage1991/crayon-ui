@@ -16,12 +16,12 @@ const Template: ComponentStory<typeof Fade> = (props) => {
   const toggleFade = ({ target }: ChangeEvent<HTMLInputElement>) => setIsFadeIn(target.checked)
 
   return (
-    <div>
+    <>
       <Switch checked={isFadeIn} onChange={toggleFade} />
-      <Fade {...props} timeout={300} unmountOnExit in={isFadeIn}>
+      <Fade {...props} timeout={300} in={isFadeIn}>
         <h1>Hello Fade!</h1>
       </Fade>
-    </div>
+    </>
   )
 }
 

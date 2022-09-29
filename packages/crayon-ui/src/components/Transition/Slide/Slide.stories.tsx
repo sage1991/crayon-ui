@@ -30,6 +30,7 @@ const Template: ComponentStory<typeof Slide> = (props) => {
       <div
         css={css`
           ${Mixin.flex()}
+          flex: 1;
           gap: 20px;
         `}
       >
@@ -45,7 +46,7 @@ const Template: ComponentStory<typeof Slide> = (props) => {
               border-radius: ${Radius.xs}px;
             `}
           >
-            <Slide {...props} in={isSlideIn} timeout={300} direction={direction} unmountOnExit>
+            <Slide {...props} in={isSlideIn} timeout={300} direction={direction}>
               <h1>Slide up!</h1>
             </Slide>
           </div>

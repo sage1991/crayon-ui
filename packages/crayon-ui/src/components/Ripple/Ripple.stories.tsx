@@ -14,11 +14,7 @@ export default meta
 const Template: ComponentStory<typeof Ripple> = (props) => {
   const colorVariants: ColorVariant[] = ["primary", "secondary", "success", "error", "warning"]
   return (
-    <div
-      css={css`
-        ${Mixin.flex({ alignment: "flex-start" })}
-      `}
-    >
+    <>
       {colorVariants.map((color) => (
         <div
           key={color}
@@ -37,7 +33,7 @@ const Template: ComponentStory<typeof Ripple> = (props) => {
           <Ripple {...props} color={color} />
         </div>
       ))}
-    </div>
+    </>
   )
 }
 

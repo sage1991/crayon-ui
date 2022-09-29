@@ -1,4 +1,5 @@
 import { ThemeProvider } from "../src"
+import { Showcase } from "../src/components/Showcase"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -16,4 +17,10 @@ const withTheme = (Story, context) => (
   </ThemeProvider>
 )
 
-export const decorators = [ withTheme ]
+const withLayout = (Story, context) => (
+  <Showcase title={`${context.title} ${context.story}`}>
+    <Story {...context} />
+  </Showcase>
+)
+
+export const decorators = [ withTheme, withLayout ]

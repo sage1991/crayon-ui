@@ -1,8 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { css } from "@emotion/react"
 
 import { Button } from "./Button"
-import { Mixin } from "../../theme"
 
 const meta: ComponentMeta<typeof Button> = {
   title: "Button",
@@ -15,14 +13,7 @@ const Template: ComponentStory<typeof Button> = (props) => {
   const alertWithMessage = (message: string) => () => alert(`${message} button clicked!`)
 
   return (
-    <div
-      css={css`
-        ${Mixin.flex({ direction: "column", alignment: "flex-start" })}
-        button {
-          margin-bottom: 20px;
-        }
-      `}
-    >
+    <>
       <Button {...props} color="primary" onClick={alertWithMessage("Primary")}>
         Primary
       </Button>
@@ -38,7 +29,7 @@ const Template: ComponentStory<typeof Button> = (props) => {
       <Button {...props} color="success" onClick={alertWithMessage("Success")}>
         Success
       </Button>
-    </div>
+    </>
   )
 }
 
