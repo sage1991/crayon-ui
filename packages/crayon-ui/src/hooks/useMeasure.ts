@@ -1,6 +1,10 @@
-import { useEffect, useRef } from "react"
+import { useLayoutEffect, useRef } from "react"
 
-export const useMeasure = <T extends HTMLElement = HTMLElement>() => {
+interface Props {
+  onResize?: (rect: Omit<DOMRectReadOnly, "toJSON">) => void
+}
+
+export const useMeasure = <T extends HTMLElement = HTMLElement>({ onResize }: Props = {}) => {
   const ref = useRef<T>(null)
   const rect = useRef<Omit<DOMRectReadOnly, "toJSON">>({
     top: 0,
@@ -13,10 +17,13 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>() => {
     width: 0
   })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (ref.current) {
       const observer = new ResizeObserver(([element]) => {
         rect.current = element.target.getBoundingClientRect()
+        if (onResize) {
+          onResize(rect.current)
+        }
       })
       observer.observe(ref.current)
       return () => observer.disconnect()
