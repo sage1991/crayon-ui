@@ -7,7 +7,7 @@ import { useMeasure } from "../../../hooks"
 
 interface Props extends TransitionProps {}
 
-export const Collapse: FC<Props> = ({ timeout, children, unmountOnExit, ...rest }) => {
+export const Collapse: FC<Props> = ({ timeout, children, ...rest }) => {
   const { ref, rect } = useMeasure<HTMLDivElement>()
   return (
     <Transition {...rest} unmountOnExit={false} timeout={{ enter: timeout, exit: 0 }}>
