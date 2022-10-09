@@ -1,20 +1,13 @@
-import {
-  forwardRef,
-  InputHTMLAttributes,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-  useRef
-} from "react"
+import { forwardRef, InputHTMLAttributes, useCallback, useEffect, useRef } from "react"
 import { ColorVariant } from "@emotion/react"
+import { useSpring } from "@react-spring/web"
+import { useDrag } from "@use-gesture/react"
 
-import { useForkElementRef, useIsControlledInput, useIsDidMount, useMeasure } from "../../hooks"
+import { useForkElementRef, useIsControlled, useMeasure } from "../../hooks"
+import { clamp, ratio } from "../../utils"
 import { Thumb } from "../Thumb"
 
 import { Input, Rail, SliderRoot, ThumbContainer, Track } from "./Slider.styled"
-import { useSpring } from "@react-spring/web"
-import { useDrag } from "@use-gesture/react"
-import { clamp, ratio } from "../../utils"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
@@ -30,7 +23,7 @@ export const Slider = forwardRef<HTMLInputElement, Props>((props, inputRef) => {
     className,
     style,
     color = "primary",
-    value = 0,
+    value,
     defaultValue = 0,
     min = 0,
     max = 100,
@@ -39,8 +32,7 @@ export const Slider = forwardRef<HTMLInputElement, Props>((props, inputRef) => {
 
   const _inputRef_ = useRef<HTMLInputElement>(null)
   const forkRef = useForkElementRef<HTMLInputElement>(_inputRef_, inputRef)
-  const isControlled = useIsControlledInput(props)
-  const isDidMount = useIsDidMount()
+  const isControlled = useIsControlled(props)
 
   const update = useCallback(
     (x: number) => {
@@ -48,27 +40,42 @@ export const Slider = forwardRef<HTMLInputElement, Props>((props, inputRef) => {
         return
       }
       _inputRef_.current.value = (min + ((max - min) * x) / rect.current.width).toFixed(1)
-      if (isControlled) {
-        _inputRef_.current.dispatchEvent(new CustomEvent("input", { bubbles: true }))
-      } else {
+      _inputRef_.current.dispatchEvent(new CustomEvent("input", { bubbles: true }))
+      if (!isControlled) {
         controller.start({ x })
       }
     },
     [isControlled, min, max]
   )
 
-  useLayoutEffect(() => {
-    if (isDidMount.current && isControlled && value) {
+  useEffect(() => {
+    if (isControlled && value) {
       const x = rect.current.width * ratio(value, { minimum: min, maximum: max })
       controller.start({ x })
     }
   }, [value, isControlled])
 
   const { ref, rect } = useMeasure<HTMLDivElement>({
+    onInit: (rect) => {
+      controller.start({
+        x:
+          rect.width *
+          ratio(value ?? defaultValue, {
+            minimum: min,
+            maximum: max
+          }),
+        immediate: true
+      })
+    },
     onResize: (rect) => {
-      if (value !== min || defaultValue !== min) {
+      if (_inputRef_.current?.value) {
         controller.start({
-          x: rect.width * ratio(value ?? defaultValue, { minimum: min, maximum: max }),
+          x:
+            rect.width *
+            ratio(+_inputRef_.current.value, {
+              minimum: min,
+              maximum: max
+            }),
           immediate: true
         })
       }
@@ -108,7 +115,15 @@ export const Slider = forwardRef<HTMLInputElement, Props>((props, inputRef) => {
       </Rail>
       <ThumbContainer {...drag()} style={{ x }}>
         <Thumb color={color}>
-          <Input {...rest} ref={forkRef} type="range" min={min} max={max} value={value} />
+          <Input
+            {...rest}
+            ref={forkRef}
+            type="range"
+            min={min}
+            max={max}
+            value={value}
+            defaultValue={defaultValue}
+          />
         </Thumb>
       </ThumbContainer>
     </SliderRoot>
