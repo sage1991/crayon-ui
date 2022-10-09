@@ -38,5 +38,9 @@ export const Thumb = styled("div")<Props>(
   &:active:after {
     transform: scale(2);
   }
+  
+  &:focus-within:after {
+    transform: scale(2);
+  }
 `
 )
