@@ -1,12 +1,20 @@
 import { useLayoutEffect, useRef } from "react"
+import { useIsDidMount } from "./useIsDidMount"
+
+export type Rect = Omit<DOMRectReadOnly, "toJSON">
 
 interface Props {
-  onResize?: (rect: Omit<DOMRectReadOnly, "toJSON">) => void
+  onInit?: (rect: Rect) => void
+  onResize?: (rect: Rect) => void
 }
 
-export const useMeasure = <T extends HTMLElement = HTMLElement>({ onResize }: Props = {}) => {
+export const useMeasure = <T extends HTMLElement = HTMLElement>({
+  onInit,
+  onResize
+}: Props = {}) => {
   const ref = useRef<T>(null)
-  const rect = useRef<Omit<DOMRectReadOnly, "toJSON">>({
+  const isDidMount = useIsDidMount()
+  const rect = useRef<Rect>({
     top: 0,
     left: 0,
     right: 0,
@@ -21,7 +29,10 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>({ onResize }: Pr
     if (ref.current) {
       const observer = new ResizeObserver(([element]) => {
         rect.current = element.target.getBoundingClientRect()
-        if (onResize) {
+        if (!isDidMount.current && onInit) {
+          onInit(rect.current)
+        }
+        if (isDidMount.current && onResize) {
           onResize(rect.current)
         }
       })
