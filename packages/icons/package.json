@@ -1,0 +1,9 @@
+{
+  "name": "@crayon-ui/icons",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "generate": "ts-node ./scripts/generate-icon.ts && yarn eslint --fix ./src/generated/*"
+  }
+}
