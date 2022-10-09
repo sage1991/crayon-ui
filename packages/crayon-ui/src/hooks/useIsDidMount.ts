@@ -1,9 +1,9 @@
-import { useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export const useIsDidMount = () => {
   const isDidMount = useRef<boolean>(false)
-  useLayoutEffect(() => () => {
-    isDidMount.current = true
-  })
+  useEffect(() => {
+    queueMicrotask(() => (isDidMount.current = true))
+  }, [])
   return isDidMount
 }
