@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo } from "react"
+import { RefObject, useCallback, useEffect, useMemo } from "react"
 import { useSpring } from "@react-spring/web"
 import { useDrag } from "@use-gesture/react"
 import { clamp, near, ratio } from "@crayon-ui/utils"
@@ -66,23 +66,15 @@ export const useSlider = ({
   // drag gesture handler
   const drag = useDrag(
     ({ dragging, offset }) => {
-      if (disabled || !dragging || !inputRef.current) {
+      if (disabled || !dragging) {
         return
       }
-
       const { width } = rect.current
       const x = near(
         clamp(offset[0], { minimum: 0, maximum: width }),
         points.map((point) => (point * width) / 100)
       )
-      // change event will not be dispatched when input value is not valid
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
-      inputRef.current.value = (minimum + ((maximum - minimum) * x) / width).toFixed(10)
-      if (controlled) {
-        inputRef.current.dispatchEvent(new CustomEvent("input", { bubbles: true }))
-      } else {
-        spring.start({ x })
-      }
+      handleGesture(x)
     },
     { from: () => [x.get(), 0] }
   )
@@ -90,26 +82,33 @@ export const useSlider = ({
   // tap gesture handler
   const tap = useDrag(
     ({ tap, xy }) => {
-      if (disabled || !tap || !inputRef.current) {
+      if (disabled || !tap) {
         return
       }
-
       const { width, x: rectX } = rect.current
       const x = near(
         xy[0] - rectX,
         points.map((point) => (point * width) / 100)
       )
-      // change event will not be dispatched when input value is not valid
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
-      inputRef.current.value = (minimum + ((maximum - minimum) * x) / width).toFixed(10)
-      if (controlled) {
-        inputRef.current.dispatchEvent(new CustomEvent("input", { bubbles: true }))
-      } else {
-        spring.start({ x })
-      }
+      handleGesture(x)
     },
     { from: () => [x.get(), 0] }
   )
+
+  const handleGesture = useCallback((x: number) => {
+    if (!inputRef.current) {
+      return
+    }
+    const { width } = rect.current
+    // change event will not be dispatched when input value is not valid
+    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
+    inputRef.current.value = (minimum + ((maximum - minimum) * x) / width).toFixed(10)
+    if (controlled) {
+      inputRef.current.dispatchEvent(new CustomEvent("input", { bubbles: true }))
+    } else {
+      spring.start({ x })
+    }
+  }, [])
 
   // measure slider size
   const { measure, rect } = useMeasure<HTMLDivElement>(
