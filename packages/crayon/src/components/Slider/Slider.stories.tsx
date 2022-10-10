@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ChangeEvent, useRef, useState } from "react"
-import { ColorVariant, css } from "@emotion/react"
+import { css } from "@emotion/react"
 
 import { Slider } from "./Slider"
 import { Mixin } from "../../theme"
