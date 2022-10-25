@@ -1,6 +1,4 @@
-import { useCallback, useLayoutEffect, useRef } from "react"
-
-import { useIsDidMount } from "./useIsDidMount"
+import { useCallback, useLayoutEffect, useRef, useState } from "react"
 
 export type Rect = Omit<DOMRectReadOnly, "toJSON">
 
@@ -13,8 +11,8 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>(
   { onMeasure, onResize }: Props = {},
   dependency: any[] = []
 ) => {
-  const ref = useRef<T>(null)
-  const isDidMount = useIsDidMount()
+  const [ref, setRef] = useState<T | null>(null)
+  const isDidMeasure = useRef<boolean>(false)
   const rect = useRef<Rect>({
     top: 0,
     left: 0,
@@ -27,22 +25,31 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>(
   })
 
   useLayoutEffect(() => {
-    if (ref.current) {
+    if (ref) {
       const observer = new ResizeObserver(([element]) => {
         rect.current = element.target.getBoundingClientRect()
-        if (!isDidMount.current && onMeasure) {
+        if (!isDidMeasure.current && onMeasure) {
           onMeasure(rect.current)
         }
-        if (isDidMount.current && onResize) {
+        if (isDidMeasure.current && onResize) {
           onResize(rect.current)
         }
+        isDidMeasure.current = true
       })
-      observer.observe(ref.current)
+      observer.observe(ref)
       return () => observer.disconnect()
     }
-  }, dependency)
+  }, [ref, ...dependency])
 
-  const measure = useCallback(() => ({ ref }), [])
+  const measure = useCallback(
+    () => ({
+      ref: (ref: T) => {
+        isDidMeasure.current = false
+        setRef(ref)
+      }
+    }),
+    []
+  )
 
   return { measure, rect }
 }
