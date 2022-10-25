@@ -7,28 +7,35 @@ import { useMeasure } from "../../../hooks"
 
 interface Props extends TransitionProps {}
 
-export const Collapse: FC<Props> = ({ timeout, children, ...rest }) => {
+export const Collapse: FC<Props> = ({ timeout, children, unmountOnExit, in: isIn, ...rest }) => {
   const { measure, rect } = useMeasure<HTMLDivElement>()
   return (
-    <Transition {...rest} unmountOnExit={false} timeout={{ enter: timeout, exit: 0 }}>
+    <Transition in={isIn} unmountOnExit={unmountOnExit} timeout={{ enter: 0, exit: timeout }}>
       {(status) => {
-        let height: number | string = "0px"
-        if (status === "entering" || status === "exiting") {
-          height = `${rect.current.height}px`
-        }
-        if (status === "entered") {
-          height = "auto"
-        }
+        const _isIn = status === "entered" && rect.current.height > 0
         return (
-          <div
-            css={css`
-              overflow: hidden;
-              transition: height ${timeout}ms;
-              height: ${height};
-            `}
-          >
-            <div {...measure()}>{children}</div>
-          </div>
+          <Transition {...rest} in={_isIn} timeout={{ enter: timeout, exit: 0 }}>
+            {(_status) => {
+              let height: number | string = "0px"
+              if (_status === "entering" || _status === "exiting") {
+                height = `${rect.current.height}px`
+              }
+              if (_status === "entered") {
+                height = "auto"
+              }
+              return (
+                <div
+                  css={css`
+                    overflow: hidden;
+                    transition: height ${timeout}ms;
+                    height: ${height};
+                  `}
+                >
+                  <div {...measure()}>{children}</div>
+                </div>
+              )
+            }}
+          </Transition>
         )
       }}
     </Transition>
