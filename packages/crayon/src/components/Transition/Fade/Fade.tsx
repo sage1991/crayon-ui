@@ -8,10 +8,10 @@ const animation = {
   end: { opacity: 1 }
 }
 
-type Props = TransitionProps
+interface Props extends TransitionProps {}
 
 export const Fade: FC<Props> = ({ children, timeout, ...rest }) => (
-  <TweenTransition {...rest} {...animation} transition="opacity 300ms" timeout={timeout}>
+  <TweenTransition {...rest} {...animation} transition={`opacity ${timeout}ms`} timeout={timeout}>
     {children}
   </TweenTransition>
 )
