@@ -11,7 +11,7 @@ interface CheckboxRootProps {
 }
 
 export const CheckboxRoot = styled("div")<CheckboxRootProps>`
-  ${Mixin.flex({ inline: true, alignment: "center", justify: "center" })}
+  ${Mixin.flex({ inline: true, alignment: "stretch", justify: "stretch" })}
   box-sizing: border-box;
   position: relative;
   width: 42px;
