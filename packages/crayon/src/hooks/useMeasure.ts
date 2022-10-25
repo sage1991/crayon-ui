@@ -11,7 +11,7 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>(
   { onMeasure, onResize }: Props = {},
   dependency: any[] = []
 ) => {
-  const [ref, setRef] = useState<T | null>(null)
+  const [element, setElement] = useState<T | null>(null)
   const isDidMeasure = useRef<boolean>(false)
   const rect = useRef<Rect>({
     top: 0,
@@ -25,7 +25,7 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>(
   })
 
   useLayoutEffect(() => {
-    if (ref) {
+    if (element) {
       const observer = new ResizeObserver(([element]) => {
         rect.current = element.target.getBoundingClientRect()
         if (!isDidMeasure.current && onMeasure) {
@@ -36,20 +36,17 @@ export const useMeasure = <T extends HTMLElement = HTMLElement>(
         }
         isDidMeasure.current = true
       })
-      observer.observe(ref)
+      observer.observe(element)
       return () => observer.disconnect()
     }
-  }, [ref, ...dependency])
+  }, [element, ...dependency])
 
-  const measure = useCallback(
-    () => ({
-      ref: (ref: T) => {
-        isDidMeasure.current = false
-        setRef(ref)
-      }
-    }),
-    []
-  )
+  const ref = useCallback((element: T) => {
+    isDidMeasure.current = false
+    setElement(element)
+  }, [])
+
+  const measure = useCallback(() => ({ ref }), [ref])
 
   return { measure, rect }
 }
