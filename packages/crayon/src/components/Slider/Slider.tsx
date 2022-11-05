@@ -7,7 +7,7 @@ import { Thumb } from "../Thumb"
 
 import { Input, Rail, SliderRoot, Point, ThumbContainer, Track } from "./Slider.styled"
 
-export interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
   value?: number
   defaultValue?: number
