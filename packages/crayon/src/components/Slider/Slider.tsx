@@ -1,9 +1,9 @@
 import { forwardRef, InputHTMLAttributes, useRef } from "react"
 
 import { useForkElementRef } from "../../hooks"
-import { Thumb } from "../Thumb"
-import { useSlider } from "./useSlider"
 import { ColorVariant } from "../../theme"
+import { useSlider } from "./useSlider"
+import { Thumb } from "../Thumb"
 
 import { Input, Rail, SliderRoot, Point, ThumbContainer, Track } from "./Slider.styled"
 
@@ -17,8 +17,8 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Slider = forwardRef<HTMLInputElement, Props>(
-  ({ className, style, color, disabled, ...props }, ref) => {
-    color = disabled ? "disabled" : color ?? "primary"
+  ({ className, style, disabled, color = "primary", ...props }, ref) => {
+    color = disabled ? "disabled" : color
     const inputRef = useRef<HTMLInputElement>(null)
     const forkRef = useForkElementRef<HTMLInputElement>(ref, inputRef)
     const { measure, tap, drag, points, trackStyle, thumbStyle } = useSlider({
@@ -31,7 +31,7 @@ export const Slider = forwardRef<HTMLInputElement, Props>(
       <SliderRoot {...measure()} {...tap()} className={className} style={style} color={color}>
         <Rail>
           {points.map((position) => (
-            <Point key={position} position={position} />
+            <Point key={position} color={color} position={position} />
           ))}
           <Track style={trackStyle} />
         </Rail>

@@ -1,19 +1,20 @@
 import styled from "@emotion/styled"
 import { animated } from "@react-spring/web"
 
-import { ColorVariant, Mixin, Palette, Radius } from "../../theme"
+import { ColorVariant, Mixin, Radius } from "../../theme"
 
 interface StepProps {
   position: number
+  color: ColorVariant
 }
 
 export const Point = styled("span")<StepProps>`
   position: absolute;
   left: ${({ position }) => position}%;
-  height: 90%;
-  aspect-ratio: 1;
+  width: 3.5px;
+  height: 3.5px;
   border-radius: 50%;
-  background-color: ${Palette.white};
+  background-color: ${({ theme, color }) => theme.palette[color].contrast};
   z-index: 1;
 
   &:first-of-type {
