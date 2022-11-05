@@ -20,7 +20,7 @@ interface RippleEffectProps {
 
 export const RippleEffect = styled("span")<RippleEffectProps>(
   ({ theme, color, radius, cx, cy, mount = true }) => css`
-    ${Mixin.absoluteFill}
+    position: absolute;
     left: ${cx - radius}px;
     top: ${cy - radius}px;
     background-color: ${theme.palette[color].light};
