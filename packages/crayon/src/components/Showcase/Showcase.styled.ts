@@ -6,7 +6,7 @@ export const ShowcaseRoot = styled("div")`
   ${Mixin.flex({ alignment: "center", justify: "center" })}
   gap: 30px;
   position: relative;
-  padding: 30px 24px;
+  padding: 50px 24px;
   border: 1px solid ${Palette.gray["400"]};
   border-radius: ${Radius.md}px;
   margin: 30px 0;
