@@ -33,7 +33,25 @@ const Template: ComponentStory<typeof Checkbox> = (props) => {
   )
 }
 
-export const Default = Template.bind({})
+export const Controlled = Template.bind({})
+
+export const UnControlled: ComponentStory<typeof Checkbox> = (props) => {
+  return (
+    <>
+      <Checkbox {...props} color="primary" />
+      <Checkbox {...props} color="secondary" />
+      <Checkbox {...props} color="success" />
+      <Checkbox {...props} color="warning" />
+      <Checkbox {...props} color="error" />
+      <Checkbox {...props} color="text" />
+    </>
+  )
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true
+}
 
 export const CustomIcon = Template.bind({})
 CustomIcon.args = {
@@ -43,16 +61,26 @@ CustomIcon.args = {
 
 export const CustomAnimation = Template.bind({})
 CustomAnimation.args = {
-  icon: <StarOutlineRounded />,
+  icon: (
+    <StarOutlineRounded
+      css={css`
+        animation: ${keyframes`
+          0% {
+            transform: rotateY(0);
+          }
+          100% {
+            transform: rotateY(180deg);
+          }
+        `} 500ms ease-in-out;
+      `}
+    />
+  ),
   checkedIcon: (
     <StarRounded
       css={css`
         animation: ${keyframes`
           0% {
             transform: rotateY(0);
-          }
-          50% {
-            transform: rotateY(180deg);
           }
           100% {
             transform: rotateY(180deg);

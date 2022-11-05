@@ -1,34 +1,41 @@
 import { forwardRef, InputHTMLAttributes } from "react"
-import { CheckBoxOutlineBlankRounded } from "@crayon-ui/icons"
+import { CheckBoxOutlineBlankRounded, CheckBoxRounded } from "@crayon-ui/icons"
 
+import { ColorVariant } from "../../theme"
+import { useCheckbox } from "./useCheckbox"
 import { Ripple } from "../Ripple"
 
-import { AnimatedCheckBoxRounded, CheckboxRoot, Input } from "./Checkbox.styled"
-import { ColorVariant } from "../../theme"
+import { CheckboxRoot, Input } from "./Checkbox.styled"
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
   icon?: JSX.Element
   checkedIcon?: JSX.Element
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const {
-    style,
-    className,
-    icon = <CheckBoxOutlineBlankRounded />,
-    checkedIcon = <AnimatedCheckBoxRounded />,
-    disabled = false,
-    color = "primary",
-    checked,
-    ...rest
-  } = props
-  return (
-    <CheckboxRoot style={style} className={className} disabled={disabled} color={color}>
-      {checked ? checkedIcon : icon}
-      <Ripple color={color} center>
-        <Input {...rest} ref={ref} type="checkbox" checked={checked} />
-      </Ripple>
-    </CheckboxRoot>
-  )
-})
+export const Checkbox = forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      style,
+      className,
+      icon = <CheckBoxOutlineBlankRounded />,
+      checkedIcon = <CheckBoxRounded />,
+      disabled = false,
+      color = "primary",
+      ...rest
+    },
+    ref
+  ) => {
+    color = disabled ? "disabled" : color
+    const { isIconChecked, onChange } = useCheckbox(rest)
+
+    return (
+      <CheckboxRoot style={style} className={className} color={color}>
+        {isIconChecked ? checkedIcon : icon}
+        <Ripple color={color} center disabled={disabled}>
+          <Input {...rest} ref={ref} type="checkbox" disabled={disabled} onChange={onChange} />
+        </Ripple>
+      </CheckboxRoot>
+    )
+  }
+)
