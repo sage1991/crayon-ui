@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ColorVariant } from "@emotion/react"
 import { ChangeEvent, useState } from "react"
 
 import { Switch } from "./Switch"
+import { ColorVariant } from "../../theme"
 
 const meta: ComponentMeta<typeof Switch> = {
   title: "UI/Switch",

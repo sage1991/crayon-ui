@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ColorVariant } from "@emotion/react"
 
 import { Thumb } from "./Thumb"
+import { ColorVariant } from "../../theme"
 
 const meta: ComponentMeta<typeof Thumb> = {
   title: "UI/Thumb",

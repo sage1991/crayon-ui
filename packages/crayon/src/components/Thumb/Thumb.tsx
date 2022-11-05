@@ -1,8 +1,7 @@
-import { ColorVariant } from "@emotion/react"
 import styled from "@emotion/styled"
 import { alpha } from "@crayon-ui/utils"
 
-import { Mixin, Shadow } from "../../theme"
+import { ColorVariant, Mixin, Shadow } from "../../theme"
 
 interface Props {
   color?: ColorVariant

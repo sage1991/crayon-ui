@@ -1,5 +1,4 @@
-import { ThemeProvider } from "../src"
-import { Showcase } from "../src/components/Showcase"
+import { DefaultGlobalStyle, ThemeProvider, Showcase } from "../src"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,6 +12,7 @@ export const parameters = {
 
 const withTheme = (Story, context) => (
   <ThemeProvider>
+    <DefaultGlobalStyle />
     <Story {...context} />
   </ThemeProvider>
 )

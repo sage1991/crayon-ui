@@ -1,10 +1,7 @@
-import { Theme } from "@emotion/react"
+import { CrayonTheme } from "./@types"
+import { Palette, Font, ZIndex } from "./styles"
 
-import { Palette } from "./Palette"
-import { Font } from "./Font"
-import { ZIndex } from "./ZIndex"
-
-export const theme: Theme = {
+export const theme: CrayonTheme = {
   palette: {
     primary: {
       light: Palette.pink["300"],

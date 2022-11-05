@@ -1,7 +1,7 @@
 import { AnimationEvent, PointerEvent, useCallback, useRef, useState } from "react"
-import { ColorVariant } from "@emotion/react"
 
 import { useMeasure } from "../../hooks"
+import { ColorVariant } from "../../theme"
 
 import { fadeOut, RippleEffect } from "./Ripple.styled"
 

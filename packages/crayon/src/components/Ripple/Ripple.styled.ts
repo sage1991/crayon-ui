@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
-import { ColorVariant, css, keyframes } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 
-import { Mixin } from "../../theme"
+import { Mixin, ColorVariant } from "../../theme"
 
 export const RippleRoot = styled("span")`
   ${Mixin.absoluteFill}

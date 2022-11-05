@@ -1,8 +1,8 @@
 import { FC, InputHTMLAttributes } from "react"
-import { ColorVariant, css } from "@emotion/react"
+import { css } from "@emotion/react"
 
 import { Thumb } from "../Thumb"
-import { Palette } from "../../theme"
+import { ColorVariant, Palette } from "../../theme"
 
 import { Input, SwitchRoot } from "./Switch.styled"
 

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
-import { ColorVariant } from "@emotion/react"
 
-import { Mixin, Radius } from "../../theme"
+import { ColorVariant, Mixin, Radius } from "../../theme"
 
 interface Props {
   color: ColorVariant

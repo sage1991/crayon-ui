@@ -1,10 +1,7 @@
 import styled from "@emotion/styled"
-import { ColorVariant } from "@emotion/react"
 import { animated } from "@react-spring/web"
-import { alpha } from "@crayon-ui/utils"
 
-import { Mixin, Palette, Radius } from "../../theme"
-import { Thumb } from "../Thumb"
+import { ColorVariant, Mixin, Palette, Radius } from "../../theme"
 
 interface StepProps {
   position: number

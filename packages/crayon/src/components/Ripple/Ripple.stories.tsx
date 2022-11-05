@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { ColorVariant, css } from "@emotion/react"
+import { css } from "@emotion/react"
 
-import { Mixin, Palette, Radius } from "../../theme"
+import { Mixin, Palette, Radius, ColorVariant } from "../../theme"
 import { Ripple } from "./Ripple"
 
 const meta: ComponentMeta<typeof Ripple> = {

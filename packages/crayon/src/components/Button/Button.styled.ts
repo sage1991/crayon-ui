@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
-import { ColorVariant } from "@emotion/react"
 import { alpha } from "@crayon-ui/utils"
 
-import { Mixin, Palette, Radius, Shadow } from "../../theme"
+import { ColorVariant, Mixin, Palette, Radius, Shadow } from "../../theme"
 
 interface ButtonRootProps {
   color: ColorVariant

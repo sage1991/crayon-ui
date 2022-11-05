@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from "react"
-import { ColorVariant } from "@emotion/react"
 
 import { useRipple } from "./useRipple"
+import { ColorVariant } from "../../theme"
 
 import { RippleRoot } from "./Ripple.styled"
 

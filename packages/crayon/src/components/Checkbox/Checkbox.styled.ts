@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
-import { ColorVariant, keyframes } from "@emotion/react"
+import { keyframes } from "@emotion/react"
 import { CheckBoxRounded } from "@crayon-ui/icons"
 import { alpha } from "@crayon-ui/utils"
 
-import { Mixin } from "../../theme"
+import { ColorVariant, Mixin } from "../../theme"
 
 interface CheckboxRootProps {
   color: ColorVariant

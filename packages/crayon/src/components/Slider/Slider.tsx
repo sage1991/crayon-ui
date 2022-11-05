@@ -1,9 +1,9 @@
 import { forwardRef, InputHTMLAttributes, useRef } from "react"
-import { ColorVariant } from "@emotion/react"
 
 import { useForkElementRef } from "../../hooks"
 import { Thumb } from "../Thumb"
 import { useSlider } from "./useSlider"
+import { ColorVariant } from "../../theme"
 
 import { Input, Rail, SliderRoot, Point, ThumbContainer, Track } from "./Slider.styled"
 
