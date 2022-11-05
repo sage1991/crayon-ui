@@ -5,6 +5,7 @@ import { Thumb } from "../Thumb"
 import { ColorVariant, Palette } from "../../theme"
 
 import { Input, SwitchRoot } from "./Switch.styled"
+import { AspectRatio } from "../AspectRatio"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
@@ -19,16 +20,20 @@ export const Switch: FC<Props> = ({
 }) => {
   return (
     <SwitchRoot style={style} className={className} color={color} checked={checked}>
-      <Thumb
+      <AspectRatio
         css={css`
-          aspect-ratio: 1;
           width: 50%;
-          height: auto;
-          background-color: ${Palette.white};
           transition: transform 300ms;
           transform: ${checked ? "translateX(100%)" : "translate(0)"};
         `}
-      />
+        ratio={1}
+      >
+        <Thumb
+          css={css`
+            background-color: ${Palette.white};
+          `}
+        />
+      </AspectRatio>
       <Input {...props} type="checkbox" checked={checked} />
     </SwitchRoot>
   )
