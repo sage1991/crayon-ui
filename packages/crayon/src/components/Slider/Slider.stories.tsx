@@ -69,12 +69,13 @@ export const Step: ComponentStory<typeof Slider> = (props) => {
           gap: 20px;
         `}
       >
-        <Slider {...props} value={value} onChange={onChange} step={10} min={-100} max={100} />
+        <Slider {...props} value={value} onChange={onChange} marks step={10} min={-100} max={100} />
         <Slider
           {...props}
           ref={ref}
           color="secondary"
           defaultValue={66}
+          marks
           step={8}
           min={50}
           max={100}

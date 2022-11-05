@@ -14,15 +14,17 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   min?: number
   max?: number
   step?: number
+  marks?: boolean
 }
 
 export const Slider = forwardRef<HTMLInputElement, Props>(
-  ({ className, style, disabled, color = "primary", ...props }, ref) => {
+  ({ className, style, disabled, color = "primary", step = 1, marks, ...props }, ref) => {
     color = disabled ? "disabled" : color
     const inputRef = useRef<HTMLInputElement>(null)
     const forkRef = useForkElementRef<HTMLInputElement>(ref, inputRef)
     const { measure, tap, drag, points, trackStyle, thumbStyle } = useSlider({
       ...props,
+      step,
       disabled,
       inputRef
     })
@@ -30,9 +32,8 @@ export const Slider = forwardRef<HTMLInputElement, Props>(
     return (
       <SliderRoot {...measure()} {...tap()} className={className} style={style} color={color}>
         <Rail>
-          {points.map((position) => (
-            <Point key={position} color={color} position={position} />
-          ))}
+          {marks &&
+            points.map((position) => <Point key={position} color={color} position={position} />)}
           <Track style={trackStyle} />
         </Rail>
         <ThumbContainer {...drag()} style={thumbStyle}>
