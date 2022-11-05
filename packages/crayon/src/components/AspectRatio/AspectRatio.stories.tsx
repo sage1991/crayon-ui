@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
-import { Mixin, Palette } from "../../theme"
+import { Mixin, Palette, Radius } from "../../theme"
 import { AspectRatio } from "./AspectRatio"
 import { Slider } from "../Slider"
 
@@ -72,11 +72,13 @@ export const Default: ComponentStory<typeof AspectRatio> = () => {
               ratio={ratio.width / ratio.height}
               css={css`
                 width: ${width}px;
+                transition: width 300ms;
               `}
             >
               <div
                 css={css`
                   background-color: ${Palette.gray["200"]};
+                  border-radius: ${Radius.xs}px;
                 `}
               />
             </AspectRatio>
