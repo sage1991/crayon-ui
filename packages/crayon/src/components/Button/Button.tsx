@@ -13,11 +13,15 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<Props> = ({
   color = "primary",
   variant = "contained",
+  disabled = false,
   children,
   ...rest
-}) => (
-  <ButtonRoot color={color} variant={variant} {...rest}>
-    {children}
-    <Ripple color={color} />
-  </ButtonRoot>
-)
+}) => {
+  color = disabled ? "disabled" : color
+  return (
+    <ButtonRoot {...rest} color={color} variant={variant} disabled={disabled}>
+      {children}
+      <Ripple color={color} disabled={disabled} />
+    </ButtonRoot>
+  )
+}

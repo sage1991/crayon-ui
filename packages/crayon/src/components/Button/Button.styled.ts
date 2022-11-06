@@ -8,17 +8,18 @@ interface ButtonRootProps {
   variant: "contained" | "outlined" | "text"
 }
 
-export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, variant }) => {
+export const ButtonRoot = styled("button")<ButtonRootProps>((props) => {
+  const { theme, color, variant } = props
   const commonStyle = `
-    ${Mixin.pointer}
-    ${Mixin.typography({ size: "1rem", weight: "500" })}
-    padding: 8px 16px;
-    border: none;
-    border-radius: ${Radius.xs}px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  `
+      ${Mixin.pointer}
+      ${Mixin.typography({ size: "1rem", weight: "500" })}
+      padding: 8px 16px;
+      border: none;
+      border-radius: ${Radius.xs}px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    `
 
   if (variant === "contained") {
     return `
@@ -27,7 +28,7 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
       color: ${theme.palette[color].contrast};
       background-color: ${theme.palette[color].main};
       transition: box-shadow 300ms, background-color 300ms;
-      
+
       :hover {
         box-shadow: ${Shadow.medium};
         background-color: ${theme.palette[color].dark};
@@ -58,5 +59,5 @@ export const ButtonRoot = styled("button")<ButtonRootProps>(({ theme, color, var
     :hover {
       background-color: ${alpha(theme.palette[color].light)};
     }
-    `
+  `
 })

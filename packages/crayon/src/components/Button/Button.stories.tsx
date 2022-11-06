@@ -47,3 +47,19 @@ export const Text: ComponentStory<typeof Button> = Template.bind({})
 Text.args = {
   variant: "text"
 }
+
+export const Disabled: ComponentStory<typeof Button> = (props) => {
+  return (
+    <>
+      <Button {...props} disabled variant="contained" onClick={console.log}>
+        Contained
+      </Button>
+      <Button {...props} disabled variant="outlined">
+        Outlined
+      </Button>
+      <Button {...props} disabled variant="text">
+        Text
+      </Button>
+    </>
+  )
+}
