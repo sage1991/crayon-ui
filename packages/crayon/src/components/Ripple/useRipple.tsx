@@ -4,6 +4,7 @@ import { useMeasure } from "../../hooks"
 import { ColorVariant } from "../../theme"
 
 import { fadeOut, RippleEffect } from "./Ripple.styled"
+import { distance } from "@crayon-ui/utils"
 
 interface Props {
   color?: ColorVariant
@@ -53,13 +54,10 @@ export const useRipple = ({ color = "primary", center = false, disabled = false 
       if (rippleKey.current) {
         hide()
       }
-
-      const { left, top, width, height } = rect.current
+      const { left, top, width, height } = rect()
       const cx = center ? width / 2 : clientX - left
       const cy = center ? height / 2 : clientY - top
-      const radius = Math.sqrt(
-        Math.pow(Math.max(cx, width - cx), 2) + Math.pow(Math.max(cy, height - cy), 2)
-      )
+      const radius = distance([0, 0], [Math.max(cx, width - cx), Math.max(cy, height - cy)])
       const key = `${performance.now()}`
       rippleKey.current = key
       setRipples((prev) => [

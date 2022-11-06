@@ -57,7 +57,7 @@ export const useSlider = ({
   // update slider when value change
   useEffect(() => {
     if (controlled && typeof value === "number") {
-      const { width } = rect.current
+      const { width } = rect()
       const _ratio = ratio(value, { minimum, maximum })
       spring.start({ x: width * _ratio })
     }
@@ -69,7 +69,7 @@ export const useSlider = ({
       if (disabled || !dragging) {
         return
       }
-      const { width } = rect.current
+      const { width } = rect()
       const x = near(
         clamp(offset[0], { minimum: 0, maximum: width }),
         points.map((point) => (point * width) / 100)
@@ -85,7 +85,7 @@ export const useSlider = ({
       if (disabled || !tap) {
         return
       }
-      const { width, x: rectX } = rect.current
+      const { width, x: rectX } = rect()
       const x = near(
         xy[0] - rectX,
         points.map((point) => (point * width) / 100)
@@ -99,7 +99,7 @@ export const useSlider = ({
     if (!inputRef.current) {
       return
     }
-    const { width } = rect.current
+    const { width } = rect()
     // change event will not be dispatched when input value is not valid
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
     inputRef.current.value = (minimum + ((maximum - minimum) * x) / width).toFixed(10)
