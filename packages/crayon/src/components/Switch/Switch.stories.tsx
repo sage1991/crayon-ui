@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 
-import { Switch } from "./Switch"
 import { ColorVariant } from "../../theme"
+import { Switch } from "./Switch"
 
 const meta: ComponentMeta<typeof Switch> = {
   title: "UI/Switch",
@@ -35,3 +35,27 @@ const Template: ComponentStory<typeof Switch> = (props) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  disabled: true
+}
+
+export const UnControlled: ComponentStory<typeof Switch> = (props) => {
+  const colorVariants: ColorVariant[] = [
+    "primary",
+    "secondary",
+    "success",
+    "error",
+    "warning",
+    "text"
+  ]
+  return (
+    <>
+      {colorVariants.map((color) => (
+        <Switch {...props} key={color} color={color} />
+      ))}
+    </>
+  )
+}
+UnControlled.args = {}

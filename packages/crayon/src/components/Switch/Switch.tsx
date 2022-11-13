@@ -3,28 +3,25 @@ import { css } from "@emotion/react"
 
 import { Thumb } from "../Thumb"
 import { ColorVariant, Palette } from "../../theme"
+import { AspectRatio } from "../AspectRatio"
+import { useSwitch } from "./useSwitch"
 
 import { Input, SwitchRoot } from "./Switch.styled"
-import { AspectRatio } from "../AspectRatio"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant
 }
 
-export const Switch: FC<Props> = ({
-  color = "primary",
-  checked = false,
-  style,
-  className,
-  ...props
-}) => {
+export const Switch: FC<Props> = ({ color = "primary", style, className, disabled, ...props }) => {
+  color = disabled ? "disabled" : color
+  const { isOn, onChange } = useSwitch(props)
   return (
-    <SwitchRoot style={style} className={className} color={color} checked={checked}>
+    <SwitchRoot style={style} className={className} color={color} checked={isOn}>
       <AspectRatio
         css={css`
           width: 50%;
           transition: transform 300ms;
-          transform: ${checked ? "translateX(100%)" : "translate(0)"};
+          transform: ${isOn ? "translateX(100%)" : "translate(0)"};
         `}
         ratio={1}
       >
@@ -34,7 +31,7 @@ export const Switch: FC<Props> = ({
           `}
         />
       </AspectRatio>
-      <Input {...props} type="checkbox" checked={checked} />
+      <Input {...props} type="checkbox" disabled={disabled} checked={isOn} onChange={onChange} />
     </SwitchRoot>
   )
 }
