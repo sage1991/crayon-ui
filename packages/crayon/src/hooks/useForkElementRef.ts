@@ -1,6 +1,11 @@
 import { ForwardedRef, MutableRefObject, RefCallback, useCallback } from "react"
 
-type Ref<T> = MutableRefObject<T | null> | RefCallback<T | null> | ForwardedRef<T | null>
+type Ref<T> =
+  | MutableRefObject<T | null>
+  | RefCallback<T | null>
+  | ForwardedRef<T | null>
+  | undefined
+  | null
 
 export const useForkElementRef = <T extends HTMLElement>(...refs: Array<Ref<T>>) => {
   const setRefs = useCallback<RefCallback<T>>((instance) => {
