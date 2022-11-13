@@ -13,6 +13,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
   },
   "peerDependencies": {
