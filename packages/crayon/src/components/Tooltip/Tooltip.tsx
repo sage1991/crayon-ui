@@ -45,35 +45,28 @@ export const Tooltip: FC<Props> = ({
     ]
   })
 
-  if (isServerSide()) {
-    return (
-      <>
-        {cloneElement(children, {
-          ...forkAnchor(),
-          ...children.props
-        })}
-      </>
+  const renderTooltip = () => {
+    let tooltip = (
+      <TransitionEffect suppressHydrationWarning in={open} timeout={300}>
+        <Root {...attributes.popper} ref={setPopperRef} style={styles.popper} color={color}>
+          {content}
+          <Arrow {...attributes.arrow} ref={setArrowRef} style={styles.arrow} />
+        </Root>
+      </TransitionEffect>
     )
+    if (portal) {
+      tooltip = createPortal(tooltip, document.body)
+    }
+    return tooltip
   }
 
-  let tooltip = (
-    <TransitionEffect suppressHydrationWarning in={open} timeout={300}>
-      <Root {...attributes.popper} ref={setPopperRef} style={styles.popper} color={color}>
-        {content}
-        <Arrow {...attributes.arrow} ref={setArrowRef} style={styles.arrow} />
-      </Root>
-    </TransitionEffect>
-  )
-  if (portal) {
-    tooltip = createPortal(tooltip, document.body)
-  }
   return (
     <>
       {cloneElement(children, {
         ...forkAnchor(),
         ...children.props
       })}
-      {tooltip}
+      {!isServerSide() && renderTooltip()}
     </>
   )
 }
