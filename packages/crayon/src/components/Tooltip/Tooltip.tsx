@@ -35,7 +35,7 @@ export const Tooltip: FC<Props> = ({
   const [anchorRef, setAnchorRef] = useState<HTMLElement | null>(null)
   const [popperRef, setPopperRef] = useState<HTMLElement | null>(null)
   const [arrowRef, setArrowRef] = useState<HTMLElement | null>(null)
-  const forkAnchor = useForkElementRef(setAnchorRef, children.ref)
+  const fork = useForkElementRef(setAnchorRef, children.ref)
   const { styles, attributes } = usePopper(anchorRef, popperRef, {
     placement,
     modifiers: [
@@ -63,7 +63,7 @@ export const Tooltip: FC<Props> = ({
   return (
     <>
       {cloneElement(children, {
-        ...forkAnchor(),
+        ...fork(),
         ...children.props
       })}
       {!isServerSide() && renderTooltip()}
