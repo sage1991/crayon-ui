@@ -28,7 +28,7 @@ export const Modal: FC<Props> = ({
   }
 
   return (
-    <Transition in={open} timeout={300} unmountOnExit>
+    <Transition suppressHydrationWarning in={open} timeout={300} unmountOnExit>
       {(status) =>
         createPortal(
           <ModalRoot>
