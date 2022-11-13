@@ -6,7 +6,7 @@ interface Props {
   ratio: number
 }
 
-export const Root = styled.div<Props>(
+export const Root = styled("div")<Props>(
   ({ ratio }) => `
     ${Mixin.flex({ alignment: "center", justify: "center" })}
     aspect-ratio: ${ratio};
