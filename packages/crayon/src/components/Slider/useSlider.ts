@@ -1,9 +1,9 @@
-import { RefObject, useCallback, useEffect, useMemo } from "react"
+import { RefObject, useCallback, useMemo } from "react"
 import { useSpring } from "@react-spring/web"
 import { useDrag } from "@use-gesture/react"
 import { clamp, near, ratio } from "@crayon-ui/utils"
 
-import { useIsExist, useMeasure } from "../../hooks"
+import { useIsExist, useMeasure, useIsomorphicLayoutEffect } from "../../hooks"
 
 const DEFAULT_MINIMUM = 0
 const DEFAULT_MAXIMUM = 100
@@ -55,7 +55,7 @@ export const useSlider = ({
   }))
 
   // update slider when value change
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (controlled && typeof value === "number") {
       const { width } = rect()
       const _ratio = ratio(value, { minimum, maximum })
