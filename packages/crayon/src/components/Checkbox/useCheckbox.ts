@@ -1,6 +1,6 @@
-import { ChangeEvent, useLayoutEffect, useState } from "react"
+import { ChangeEvent, useState } from "react"
 
-import { useIsExist } from "../../hooks"
+import { useIsExist, useIsomorphicLayoutEffect } from "../../hooks"
 
 interface Props {
   checked?: boolean
@@ -12,7 +12,7 @@ export const useCheckbox = ({ checked, defaultChecked, onChange: originalOnChang
   const controlled = useIsExist(checked)
   const [isIconChecked, setIsIconChecked] = useState(defaultChecked ?? checked)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof checked === "boolean") {
       setIsIconChecked(checked)
     }
