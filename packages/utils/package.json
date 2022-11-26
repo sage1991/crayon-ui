@@ -4,6 +4,6 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "test": "jest --watch"
+    "test": "run -T jest --watch"
   }
 }

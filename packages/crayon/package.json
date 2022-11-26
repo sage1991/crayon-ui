@@ -8,8 +8,8 @@
     "email": "shsage91@gmail.com"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "run -T start-storybook -p 6006",
+    "build-storybook": "run -T build-storybook"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",

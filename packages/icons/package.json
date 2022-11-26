@@ -4,6 +4,7 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "generate": "ts-node ./scripts/generate-icon.ts && yarn eslint --fix ./src/generated/*"
+    "generate": "run -T ts-node ./scripts/generate-icon.ts && yarn lint",
+    "lint": "run -T eslint --fix ./src/generated/*"
   }
 }
