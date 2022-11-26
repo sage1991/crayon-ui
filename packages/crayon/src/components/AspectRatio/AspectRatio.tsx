@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from "react"
 
-import { Root } from "./AspectRatio.styled"
+import { InnerContainer, Root } from "./AspectRatio.styled"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   ratio?: number
@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const AspectRatio: FC<Props> = ({ ratio = 1, children, ...rest }) => (
-  <Root {...rest} ratio={ratio}>
-    {children}
+  <Root {...rest}>
+    <InnerContainer ratio={ratio}>{children}</InnerContainer>
   </Root>
 )
