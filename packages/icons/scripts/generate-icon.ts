@@ -38,9 +38,10 @@ const main = async () => {
 
   const iconNames = await fs.readdir(resources)
   await Promise.all(iconNames.map(generateCodeFromSvg))
-  await Promise.all(
-    iconNames.map((name) => fs.appendFile(index, `export * from "./${name.replace(".svg", "")}"\n`))
-  )
+  const buffer = iconNames
+    .sort()
+    .reduce((acc, name) => `${acc}export * from "./${name.replace(".svg", "")}"\n`, "")
+  await fs.appendFile(index, buffer)
 }
 
 main()
