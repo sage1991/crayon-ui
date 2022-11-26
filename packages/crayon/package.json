@@ -1,7 +1,6 @@
 {
   "name": "@crayon-ui/crayon",
   "version": "1.0.0",
-  "private": false,
   "main": "src/index.ts",
   "license": "MIT",
   "author": {
