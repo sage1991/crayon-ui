@@ -6,5 +6,9 @@
   "scripts": {
     "generate": "run -T ts-node ./scripts/generate-icon.ts && yarn lint",
     "lint": "run -T eslint --fix ./src/generated/*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
