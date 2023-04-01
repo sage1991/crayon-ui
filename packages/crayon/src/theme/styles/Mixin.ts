@@ -1,6 +1,7 @@
 import { CSSProperties } from "react"
 
 import { Font } from "./Font"
+import { Supports } from "./Supports"
 
 export namespace Mixin {
   interface FlexProps {
@@ -50,7 +51,7 @@ export namespace Mixin {
     width: 100%;
     height: 100%;
 
-    @supports not (inset: 0) {
+    ${Supports.not("inset: 0")} {
       left: 0;
       top: 0;
       right: 0;

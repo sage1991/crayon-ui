@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-import { Mixin } from "../../theme"
+import { Mixin, Supports } from "../../theme"
 
 export const Root = styled("div")`
   ${Mixin.flex({ alignment: "center", justify: "center" })}
@@ -22,7 +22,7 @@ export const InnerContainer = styled("div")<Props>(
       height: 100%;
     }
 
-    @supports not (aspect-ratio: ${ratio}) {
+    ${Supports.not(`aspect-ratio: ${ratio}`)} {
       position: relative;
       padding-top: ${100 / ratio}%;
 
