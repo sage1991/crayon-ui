@@ -12,6 +12,7 @@
     "build-storybook": "run -T build-storybook"
   },
   "dependencies": {
+    "@crayon-ui/utils": "^1.0.0",
     "@popperjs/core": "^2.11.6",
     "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
