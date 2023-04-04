@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,7 +6,7 @@ import { Mixin, Palette, Radius } from "../../theme"
 import { AspectRatio } from "./AspectRatio"
 import { Slider } from "../Slider"
 
-const meta: ComponentMeta<typeof AspectRatio> = {
+const meta: Meta<typeof AspectRatio> = {
   title: "UI/AspectRatio",
   component: AspectRatio
 }
@@ -21,7 +21,7 @@ const RATIO_LIST = [
   { width: 1, height: 2 }
 ]
 
-export const Default: ComponentStory<typeof AspectRatio> = () => {
+export const Default: StoryFn<typeof AspectRatio> = () => {
   const [width, setWidth] = useState<number>(100)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {

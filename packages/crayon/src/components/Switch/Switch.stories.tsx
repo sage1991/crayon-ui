@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 
 import { ColorVariant } from "../../theme"
 import { Switch } from "./Switch"
 
-const meta: ComponentMeta<typeof Switch> = {
+const meta: Meta<typeof Switch> = {
   title: "UI/Switch",
   component: Switch
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Switch> = (props) => {
+const Template: StoryFn<typeof Switch> = (props) => {
   const colorVariants: ColorVariant[] = [
     "primary",
     "secondary",
@@ -41,7 +41,7 @@ Disabled.args = {
   disabled: true
 }
 
-export const UnControlled: ComponentStory<typeof Switch> = (props) => {
+export const UnControlled: StoryFn<typeof Switch> = (props) => {
   const colorVariants: ColorVariant[] = [
     "primary",
     "secondary",

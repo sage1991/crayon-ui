@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
 
 import { Mixin, Palette, Radius, ColorVariant } from "../../theme"
 import { Ripple } from "./Ripple"
 
-const meta: ComponentMeta<typeof Ripple> = {
+const meta: Meta<typeof Ripple> = {
   title: "UI/Ripple",
   component: Ripple
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Ripple> = (props) => {
+const Template: StoryFn<typeof Ripple> = (props) => {
   const colorVariants: ColorVariant[] = ["primary", "secondary", "success", "error", "warning"]
   return (
     <>

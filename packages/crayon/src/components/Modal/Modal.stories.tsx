@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { useState } from "react"
 import { css } from "@emotion/react"
 
@@ -7,14 +7,14 @@ import { Button } from "../Button"
 import { Radius } from "../../theme"
 import { Slide } from "../Transition"
 
-const meta: ComponentMeta<typeof Modal> = {
+const meta: Meta<typeof Modal> = {
   title: "UI/Modal",
   component: Modal
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Modal> = (props) => {
+const Template: StoryFn<typeof Modal> = (props) => {
   const [open, setOpen] = useState<boolean>(false)
   const openModal = () => setOpen(true)
   const closeModal = () => setOpen(false)

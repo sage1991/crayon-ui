@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,14 +6,14 @@ import { TweenTransition } from "./TweenTransition"
 import { Mixin, Palette, Radius } from "../../../theme"
 import { Switch } from "../../Switch"
 
-const meta: ComponentMeta<typeof TweenTransition> = {
+const meta: Meta<typeof TweenTransition> = {
   title: "Transition/TweenTransition",
   component: TweenTransition
 }
 
 export default meta
 
-const Template: ComponentStory<typeof TweenTransition> = (props) => {
+const Template: StoryFn<typeof TweenTransition> = (props) => {
   const [isIn, setIsIn] = useState<boolean>(props.in ?? false)
   const toggleTransition = ({ target }: ChangeEvent<HTMLInputElement>) => setIsIn(target.checked)
 

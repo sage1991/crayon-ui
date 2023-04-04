@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,14 +6,14 @@ import { Rotate } from "./Rotate"
 import { Switch } from "../../Switch"
 import { Mixin, Palette, Radius } from "../../../theme"
 
-const meta: ComponentMeta<typeof Rotate> = {
+const meta: Meta<typeof Rotate> = {
   title: "Transition/Rotate",
   component: Rotate
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Rotate> = (props) => {
+const Template: StoryFn<typeof Rotate> = (props) => {
   const [isIn, setIsIn] = useState<boolean>(props.in ?? false)
   const toggleTransition = ({ target }: ChangeEvent<HTMLInputElement>) => setIsIn(target.checked)
   return (

@@ -1,15 +1,15 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 
 import { Button } from "./Button"
 
-const meta: ComponentMeta<typeof Button> = {
+const meta: Meta<typeof Button> = {
   title: "UI/Button",
   component: Button
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Button> = (props) => {
+const Template: StoryFn<typeof Button> = (props) => {
   const alertWithMessage = (message: string) => () => alert(`${message} button clicked!`)
 
   return (
@@ -33,22 +33,22 @@ const Template: ComponentStory<typeof Button> = (props) => {
   )
 }
 
-export const Contained: ComponentStory<typeof Button> = Template.bind({})
+export const Contained: StoryFn<typeof Button> = Template.bind({})
 Contained.args = {
   variant: "contained"
 }
 
-export const Outlined: ComponentStory<typeof Button> = Template.bind({})
+export const Outlined: StoryFn<typeof Button> = Template.bind({})
 Outlined.args = {
   variant: "outlined"
 }
 
-export const Text: ComponentStory<typeof Button> = Template.bind({})
+export const Text: StoryFn<typeof Button> = Template.bind({})
 Text.args = {
   variant: "text"
 }
 
-export const Disabled: ComponentStory<typeof Button> = (props) => {
+export const Disabled: StoryFn<typeof Button> = (props) => {
   return (
     <>
       <Button {...props} disabled variant="contained" onClick={console.log}>

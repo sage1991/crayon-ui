@@ -8,10 +8,11 @@
     "email": "shsage91@gmail.com"
   },
   "scripts": {
-    "storybook": "run -T start-storybook -p 6006",
-    "build-storybook": "run -T build-storybook"
+    "storybook": "run -T sb dev",
+    "build-storybook": "run -T sb build"
   },
   "dependencies": {
+    "@crayon-ui/icons": "^1.0.0",
     "@crayon-ui/utils": "^1.0.0",
     "@popperjs/core": "^2.11.6",
     "react-popper": "^2.3.0",

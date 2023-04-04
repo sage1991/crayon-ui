@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
 
 import { Tooltip } from "./Tooltip"
 import { Mixin } from "../../theme"
 
-const meta: ComponentMeta<typeof Tooltip> = {
+const meta: Meta<typeof Tooltip> = {
   title: "UI/Tooltip",
   component: Tooltip
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Tooltip> = (props) => {
+const Template: StoryFn<typeof Tooltip> = (props) => {
   return (
     <div
       css={css`

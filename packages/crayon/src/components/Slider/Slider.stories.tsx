@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useRef, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,14 +6,14 @@ import { Slider } from "./Slider"
 import { Mixin } from "../../theme"
 import { Button } from "../Button"
 
-const meta: ComponentMeta<typeof Slider> = {
+const meta: Meta<typeof Slider> = {
   title: "UI/Slider",
   component: Slider
 }
 
 export default meta
 
-export const Controlled: ComponentStory<typeof Slider> = (props) => {
+export const Controlled: StoryFn<typeof Slider> = (props) => {
   const [value, setValue] = useState<number>(0)
   const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(+e.target.value)
 
@@ -33,7 +33,7 @@ export const Controlled: ComponentStory<typeof Slider> = (props) => {
   )
 }
 
-export const UnControlled: ComponentStory<typeof Slider> = (props) => {
+export const UnControlled: StoryFn<typeof Slider> = (props) => {
   const ref = useRef<HTMLInputElement>(null)
   const onClick = () => alert(ref.current?.value)
 
@@ -55,7 +55,7 @@ export const UnControlled: ComponentStory<typeof Slider> = (props) => {
   )
 }
 
-export const Step: ComponentStory<typeof Slider> = (props) => {
+export const Step: StoryFn<typeof Slider> = (props) => {
   const ref = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState<number>(0)
   const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(+e.target.value)
@@ -85,7 +85,7 @@ export const Step: ComponentStory<typeof Slider> = (props) => {
   )
 }
 
-export const Disabled: ComponentStory<typeof Slider> = (props) => {
+export const Disabled: StoryFn<typeof Slider> = (props) => {
   const [value, setValue] = useState<number>(50)
   const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(+e.target.value)
 

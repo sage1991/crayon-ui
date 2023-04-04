@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,14 +6,14 @@ import { Slide } from "./Slide"
 import { Switch } from "../../Switch"
 import { Mixin, Palette, Radius } from "../../../theme"
 
-const meta: ComponentMeta<typeof Slide> = {
+const meta: Meta<typeof Slide> = {
   title: "Transition/Slide",
   component: Slide
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Slide> = (props) => {
+const Template: StoryFn<typeof Slide> = (props) => {
   const [isSlideIn, setIsSlideIn] = useState<boolean>(false)
   const toggleSlide = ({ target }: ChangeEvent<HTMLInputElement>) => setIsSlideIn(target.checked)
   const directions: Array<"up" | "down" | "right" | "left"> = ["up", "down", "right", "left"]

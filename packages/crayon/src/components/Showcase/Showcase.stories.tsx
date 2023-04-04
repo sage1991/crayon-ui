@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
 
 import { Showcase } from "./Showcase"
 import { Palette, Radius } from "../../theme"
 
-const meta: ComponentMeta<typeof Showcase> = {
+const meta: Meta<typeof Showcase> = {
   title: "UI/Showcase",
   component: Showcase
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Showcase> = (props) => {
+const Template: StoryFn<typeof Showcase> = (props) => {
   return (
     <Showcase {...props} title="Showcase">
       <p

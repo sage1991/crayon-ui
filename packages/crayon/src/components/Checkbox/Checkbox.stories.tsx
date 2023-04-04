@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEventHandler, useState } from "react"
 import { css, keyframes } from "@emotion/react"
 import {
@@ -10,14 +10,14 @@ import {
 
 import { Checkbox } from "./Checkbox"
 
-const meta: ComponentMeta<typeof Checkbox> = {
+const meta: Meta<typeof Checkbox> = {
   title: "UI/Checkbox",
   component: Checkbox
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Checkbox> = (props) => {
+const Template: StoryFn<typeof Checkbox> = (props) => {
   const [checked, setChecked] = useState<boolean>(false)
   const onchange: ChangeEventHandler<HTMLInputElement> = ({ target }) => setChecked(target.checked)
 
@@ -35,7 +35,7 @@ const Template: ComponentStory<typeof Checkbox> = (props) => {
 
 export const Controlled = Template.bind({})
 
-export const UnControlled: ComponentStory<typeof Checkbox> = (props) => {
+export const UnControlled: StoryFn<typeof Checkbox> = (props) => {
   return (
     <>
       <Checkbox {...props} color="primary" />

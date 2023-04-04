@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 
 import { Fade } from "./Fade"
 import { Switch } from "../../Switch"
 
-const meta: ComponentMeta<typeof Fade> = {
+const meta: Meta<typeof Fade> = {
   title: "Transition/Fade",
   component: Fade
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Fade> = (props) => {
+const Template: StoryFn<typeof Fade> = (props) => {
   const [isFadeIn, setIsFadeIn] = useState<boolean>(false)
   const toggleFade = ({ target }: ChangeEvent<HTMLInputElement>) => setIsFadeIn(target.checked)
 

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 import { css } from "@emotion/react"
 
@@ -6,14 +6,14 @@ import { Focus } from "./Focus"
 import { Switch } from "../../Switch"
 import { Palette, Radius } from "../../../theme"
 
-const meta: ComponentMeta<typeof Focus> = {
+const meta: Meta<typeof Focus> = {
   title: "Transition/Focus",
   component: Focus
 }
 
 export default meta
 
-const Template: ComponentStory<typeof Focus> = (props) => {
+const Template: StoryFn<typeof Focus> = (props) => {
   const [isFocusIn, setIsFocusIn] = useState(props.in ?? false)
   const toggleFocus = ({ target }: ChangeEvent<HTMLInputElement>) => setIsFocusIn(target.checked)
 
