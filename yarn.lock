@@ -2211,6 +2211,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@crayon-ui/crayon@workspace:packages/crayon"
   dependencies:
+    "@crayon-ui/utils": ^1.0.0
     "@popperjs/core": ^2.11.6
     react-popper: ^2.3.0
     react-transition-group: ^4.4.5
@@ -2227,10 +2228,13 @@ __metadata:
 "@crayon-ui/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@crayon-ui/icons@workspace:packages/icons"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
-"@crayon-ui/utils@workspace:packages/utils":
+"@crayon-ui/utils@^1.0.0, @crayon-ui/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@crayon-ui/utils@workspace:packages/utils"
   languageName: unknown
@@ -8084,7 +8088,7 @@ __metadata:
     react-dom: ^18.2.0
     storybook: ^6.5.12
     ts-node: ^10.9.1
-    typescript: 4.8.2
+    typescript: ^5.0.3
   languageName: unknown
   linkType: soft
 
@@ -18052,23 +18056,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.8.2":
-  version: 4.8.2
-  resolution: "typescript@npm:4.8.2"
+"typescript@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "typescript@npm:5.0.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7f5b81d0d558c9067f952c7af52ab7f19c2e70a916817929e4a5b256c93990bf3178eccb1ac8a850bc75df35f6781b6f4cb3370ce20d8b1ded92ed462348f628
+  checksum: 3cce0576d218cb4277ff8b6adfef1a706e9114a98b4261a38ad658a7642f1b274a8396394f6cbff8c0ba852996d7ed2e233e9b8431d5d55ac7c2f6fea645af02
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.8.2#~builtin<compat/typescript>":
-  version: 4.8.2
-  resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=aae4e6"
+"typescript@patch:typescript@^5.0.3#~builtin<compat/typescript>":
+  version: 5.0.3
+  resolution: "typescript@patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=d73830"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5cb0f02f414f5405f4b0e7ee1fd7fa9177b6a8783c9017b6cad85f56ce4c4f93e0e6f2ce37e863cb597d44227cd009474c9fbd85bf7a50004e5557426cb58079
+  checksum: 9ec0a8eed38d46cc2c8794555b7674e413604c56c159f71b8ff21ce7f17334a44127a68724cb2ef8221ff3b19369f8f05654e8a5266621d7d962aeed889bd630
   languageName: node
   linkType: hard
 
