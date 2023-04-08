@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist/types",
+    "composite": true,
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "references": [
+    {
+      "path": "../icons/tsconfig.build.json"
+    },
+    {
+      "path": "../utils/tsconfig.build.json"
+    }
+  ],
+  "include": [
+    "./src/**/*.ts*"
+  ],
+  "exclude": [
+    "./src/**/*.stories.tsx"
+  ]
+}
