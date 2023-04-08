@@ -21,7 +21,8 @@
     "icons": "yarn workspace @crayon-ui/icon",
     "utils": "yarn workspace @crayon-ui/utils",
     "clean": "yarn workspaces foreach run clean",
-    "build": "yarn workspaces foreach run build"
+    "build": "yarn workspaces foreach run build",
+    "version": "yarn install && yarn changeset version"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
