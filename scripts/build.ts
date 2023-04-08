@@ -9,10 +9,9 @@ const supportedModules = ["commonjs", "esm"]
 
 interface Arguments {
   module?: string
-  verbose?: boolean
 }
 
-const build = async ({ module = "esm", verbose = false }: yargs.ArgumentsCamelCase<Arguments>) => {
+const build = async ({ module = "esm" }: yargs.ArgumentsCamelCase<Arguments>) => {
   const isSupportedModuleType = supportedModules.includes(module)
   if (!isSupportedModuleType) {
     throw new Error(`Invalid module type ${module}. Choose one of [${supportedModules.join(", ")}]`)
@@ -37,25 +36,26 @@ const build = async ({ module = "esm", verbose = false }: yargs.ArgumentsCamelCa
     `--extensions "${extensions.join(",")}"`,
     `--out-dir ${outDir}`,
     `--config-file ${configFilePath}`,
-    `--ignore "${ignore.join(`"."`)}"`,
+    `--ignore "${ignore.join(`","`)}"`,
+    "--verbose",
     srcDir
   ].join(" ")
 
-  if (verbose) {
-    console.log("Start to build 🚀")
-    console.log(`workspace path: ${workspacePath}`)
-    console.log("build command: ")
-    console.log(command)
-  }
+  console.log("Start to build 🚀")
+  console.log(`
+    🖍️workspace path
+      - ${workspacePath}
+    🖍️build command
+      - ${command}
+  `)
 
   const { stderr, stdout } = await execute(command, { env: { ...process.env } })
   if (stderr) {
     throw new Error(`${command} failed with\n${stderr}`)
   }
 
-  if (verbose) {
-    console.log(stdout)
-  }
+  console.log("Build success 😁")
+  console.log(stdout)
 }
 
 yargs(hideBin(process.argv))
@@ -63,14 +63,10 @@ yargs(hideBin(process.argv))
     command: "$0 <module>",
     describe: "Build packages",
     builder: (args) =>
-      args
-        .positional("module", {
-          describe: `Valid module: ${supportedModules.join(", ")}`,
-          type: "string"
-        })
-        .option("verbose", {
-          type: "boolean"
-        }),
+      args.positional("module", {
+        describe: `Valid module: ${supportedModules.join(", ")}`,
+        type: "string"
+      }),
     handler: build
   })
   .help()
