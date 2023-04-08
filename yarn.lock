@@ -2605,8 +2605,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@crayon-ui/crayon@workspace:packages/crayon"
   dependencies:
-    "@crayon-ui/icons": ^1.0.0
-    "@crayon-ui/utils": ^1.0.0
+    "@crayon-ui/icons": ^1.1.0
+    "@crayon-ui/utils": ^1.1.0
     "@popperjs/core": ^2.11.6
     react-popper: ^2.3.0
     react-transition-group: ^4.4.5
@@ -2620,7 +2620,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@crayon-ui/icons@^1.0.0, @crayon-ui/icons@workspace:packages/icons":
+"@crayon-ui/icons@^1.1.0, @crayon-ui/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@crayon-ui/icons@workspace:packages/icons"
   peerDependencies:
@@ -2629,7 +2629,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@crayon-ui/utils@^1.0.0, @crayon-ui/utils@workspace:packages/utils":
+"@crayon-ui/utils@^1.1.0, @crayon-ui/utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@crayon-ui/utils@workspace:packages/utils"
   languageName: unknown
