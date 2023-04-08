@@ -1,6 +1,6 @@
 {
   "name": "@crayon-ui/crayon",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",
@@ -24,8 +24,8 @@
     "build:types": "run -T tsc --build tsconfig.build.json --verbose"
   },
   "dependencies": {
-    "@crayon-ui/icons": "^0.0.0",
-    "@crayon-ui/utils": "^0.0.0",
+    "@crayon-ui/icons": "^0.0.1",
+    "@crayon-ui/utils": "^0.0.1",
     "@popperjs/core": "^2.11.6",
     "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
