@@ -1,6 +1,6 @@
 {
   "name": "@crayon-ui/icons",
-  "version": "1.1.0",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/types/index.d.ts",

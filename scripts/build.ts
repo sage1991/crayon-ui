@@ -43,19 +43,20 @@ const build = async ({ module = "esm" }: yargs.ArgumentsCamelCase<Arguments>) =>
 
   console.log("Start to build 🚀")
   console.log(`
+    🖍️module
+      - ${module}
     🖍️workspace path
       - ${workspacePath}
     🖍️build command
       - ${command}
   `)
 
-  const { stderr, stdout } = await execute(command, { env: { ...process.env } })
+  const { stderr } = await execute(command, { env: { ...process.env } })
   if (stderr) {
     throw new Error(`${command} failed with\n${stderr}`)
   }
 
   console.log("Build success 😁")
-  console.log(stdout)
 }
 
 yargs(hideBin(process.argv))
