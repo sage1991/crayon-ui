@@ -22,6 +22,10 @@
     "utils": "yarn workspace @crayon-ui/utils",
     "clean": "yarn workspaces foreach run clean",
     "build": "yarn workspaces foreach run build",
+    "build:commonjs": "yarn workspaces foreach run build:commonjs",
+    "build:esm": "yarn workspaces foreach run build:esm",
+    "build:types": "yarn workspaces foreach run build:types",
+    "publish": "yarn workspaces foreach run generate-package-json && yarn changeset publish",
     "version": "yarn install && yarn changeset version"
   },
   "devDependencies": {

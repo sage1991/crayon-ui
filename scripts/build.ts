@@ -17,7 +17,7 @@ const build = async ({ module = "esm" }: yargs.ArgumentsCamelCase<Arguments>) =>
     throw new Error(`Invalid module type ${module}. Choose one of [${supportedModules.join(", ")}]`)
   }
 
-  const configFilePath = path.resolve(__dirname, `./babel.${module}.json`)
+  const configFilePath = path.resolve(__dirname, "../babel.config.js")
   const workspacePath = process.cwd()
   const srcDir = path.resolve(workspacePath, "./src")
   const outDir = path.resolve(workspacePath, module === "esm" ? "./dist/esm" : "./dist")
@@ -51,7 +51,12 @@ const build = async ({ module = "esm" }: yargs.ArgumentsCamelCase<Arguments>) =>
       - ${command}
   `)
 
-  const { stderr } = await execute(command, { env: { ...process.env } })
+  const { stderr } = await execute(command, {
+    env: {
+      ...process.env,
+      ...{ BABEL_ENV: module }
+    }
+  })
   if (stderr) {
     throw new Error(`${command} failed with\n${stderr}`)
   }
