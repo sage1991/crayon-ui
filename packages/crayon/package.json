@@ -1,6 +1,6 @@
 {
   "name": "@crayon-ui/crayon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./src/index.ts",
   "license": "MIT",
   "repository": {
@@ -23,8 +23,8 @@
     "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts"
   },
   "dependencies": {
-    "@crayon-ui/icons": "^0.0.1",
-    "@crayon-ui/utils": "^0.0.1",
+    "@crayon-ui/icons": "^0.0.2",
+    "@crayon-ui/utils": "^0.0.2",
     "@popperjs/core": "^2.11.6",
     "@react-spring/web": "^9.5.5",
     "@use-gesture/react": "^10.2.20",
