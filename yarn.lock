@@ -2608,13 +2608,14 @@ __metadata:
     "@crayon-ui/icons": ^0.0.1
     "@crayon-ui/utils": ^0.0.1
     "@popperjs/core": ^2.11.6
+    "@react-spring/web": ^9.5.5
+    "@types/react-transition-group": ^4.4.5
+    "@use-gesture/react": ^10.2.20
     react-popper: ^2.3.0
     react-transition-group: ^4.4.5
   peerDependencies:
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
-    "@react-spring/web": ^9.5.5
-    "@use-gesture/react": ^10.2.20
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -5704,21 +5705,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@use-gesture/core@npm:10.2.20":
-  version: 10.2.20
-  resolution: "@use-gesture/core@npm:10.2.20"
-  checksum: 8758f51c53a68f08a058fc17b3bced1b88d74825de9f5e7851b8d0f5318da429600e71d76d68ce1cdf1bf8b951f8db9d9b391c224bc18f74e6e8b46ee2fa348b
+"@use-gesture/core@npm:10.2.26":
+  version: 10.2.26
+  resolution: "@use-gesture/core@npm:10.2.26"
+  checksum: 8a000d715034f8e3e767042f8290c446f4544d94b57c94cf3027fd55f842cd8842a946a48d816b7dafcfd6bdec40219e2c9d8577785b8a0a5ed1fd5970b9de4b
   languageName: node
   linkType: hard
 
 "@use-gesture/react@npm:^10.2.20":
-  version: 10.2.20
-  resolution: "@use-gesture/react@npm:10.2.20"
+  version: 10.2.26
+  resolution: "@use-gesture/react@npm:10.2.26"
   dependencies:
-    "@use-gesture/core": 10.2.20
+    "@use-gesture/core": 10.2.26
   peerDependencies:
     react: ">= 16.8.0"
-  checksum: 6e1ce60d1fd3bbde8bb9f6aad92203d200e9e446b2bb87179d23f96a1944d9f196e9eff76a3179d5fcfaa68b60fa5dba1aa5a0d71010f9a19fc598db955b3e8b
+  checksum: e9f74ab42fe817a098772abf94d313a870f240a91c85a7dc18ddc8e155ca9e2eddbdf059dce5efe4922a3b4852266d5c43efde8d72a27c07b8932a90596a8c94
   languageName: node
   linkType: hard
 
@@ -7478,7 +7479,6 @@ __metadata:
     "@emotion/babel-plugin": ^11.10.2
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
-    "@react-spring/web": ^9.5.5
     "@storybook/addon-actions": ^7.0.1
     "@storybook/addon-essentials": ^7.0.1
     "@storybook/addon-interactions": ^7.0.1
@@ -7492,9 +7492,7 @@ __metadata:
     "@types/node": 18.7.13
     "@types/react": ^18.0.18
     "@types/react-dom": ^18.0.6
-    "@types/react-transition-group": ^4.4.5
     "@typescript-eslint/eslint-plugin": ^5.0.0
-    "@use-gesture/react": ^10.2.20
     babel-loader: ^8.2.5
     eslint: 8.22.0
     eslint-config-next: 12.2.5

@@ -27,14 +27,17 @@
     "@crayon-ui/icons": "^0.0.1",
     "@crayon-ui/utils": "^0.0.1",
     "@popperjs/core": "^2.11.6",
+    "@react-spring/web": "^9.5.5",
+    "@use-gesture/react": "^10.2.20",
     "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@types/react-transition-group": "^4.4.5"
   },
   "peerDependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@react-spring/web": "^9.5.5",
-    "@use-gesture/react": "^10.2.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
