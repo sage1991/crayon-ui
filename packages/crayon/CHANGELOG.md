@@ -1,5 +1,14 @@
 # @crayon-ui/crayon
 
+## 0.0.2
+
+### Patch Changes
+
+- fb2e4f5: Add unexported components & Supports es modules
+- Updated dependencies [fb2e4f5]
+  - @crayon-ui/icons@0.0.2
+  - @crayon-ui/utils@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
