@@ -14,12 +14,12 @@
   },
   "scripts": {
     "storybook": "run -T sb dev --port 3000",
-    "build-storybook": "run -T sb build",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf storybook-static",
     "build": "yarn build:esm && yarn build:commonjs && yarn build:types",
     "build:esm": "run -T ts-node ../../scripts/build.ts esm",
     "build:commonjs": "run -T ts-node ../../scripts/build.ts commonjs",
     "build:types": "run -T ts-node ../../scripts/generateTypes.ts",
+    "build:storybook": "yarn run -T sb build",
     "test:types": "tsc --noEmit",
     "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts"
   },
