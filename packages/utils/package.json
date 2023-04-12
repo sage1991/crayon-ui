@@ -19,6 +19,7 @@
     "build:esm": "run -T ts-node ../../scripts/build.ts esm",
     "build:commonjs": "run -T ts-node ../../scripts/build.ts commonjs",
     "build:types": "run -T ts-node ../../scripts/generateTypes.ts",
+    "test:types": "tsc --noEmit",
     "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts"
   }
 }
