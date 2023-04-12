@@ -1,0 +1,23 @@
+name: unit test
+
+on:
+  pull_request:
+
+jobs:
+  test-type:
+    name: Unit test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Run unit test
+        run: yarn test:unit
