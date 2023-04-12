@@ -17,7 +17,7 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Check type error
         run: yarn test:types
