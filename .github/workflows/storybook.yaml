@@ -22,10 +22,11 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Deploy crayon to chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build:storybook
           workingDir: packages/crayon
