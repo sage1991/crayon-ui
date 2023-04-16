@@ -1,5 +1,11 @@
 # @crayon-ui/crayon
 
+## 0.0.3
+
+### Patch Changes
+
+- 79dc324: Add segment compoonent
+
 ## 0.0.2
 
 ### Patch Changes
