@@ -1,4 +1,5 @@
 import { DefaultGlobalStyle, ThemeProvider, Showcase } from "../src"
+import { Decorator } from "@storybook/react"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,14 +11,14 @@ export const parameters = {
   },
 }
 
-const withTheme = (Story, context) => (
+const withTheme: Decorator = (Story, context) => (
   <ThemeProvider>
     <DefaultGlobalStyle />
     <Story {...context} />
   </ThemeProvider>
 )
 
-const withLayout = (Story, context) => (
+const withLayout: Decorator = (Story, context) => (
   <Showcase title={`${context.title} ${context.story}`}>
     <Story {...context} />
   </Showcase>

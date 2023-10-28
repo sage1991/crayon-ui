@@ -16,6 +16,7 @@ const config: StorybookConfig = {
     autodocs: true
   },
   babel: (config) => {
+    const { plugins } = config
     return {
       ...config,
       presets: [
@@ -29,7 +30,7 @@ const config: StorybookConfig = {
         ],
         "@babel/preset-typescript"
       ],
-      plugins: [...config.plugins, "@emotion"]
+      plugins: [...(plugins ?? []), "@emotion"]
     }
   }
 }
