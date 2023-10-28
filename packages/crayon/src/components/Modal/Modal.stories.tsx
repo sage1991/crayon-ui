@@ -1,11 +1,11 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { useState } from "react"
-import { css } from "@emotion/react"
 
-import { Modal } from "./Modal"
-import { Button } from "../Button"
 import { Radius } from "../../theme"
+import { Button } from "../Button"
 import { Slide } from "../Transition"
+import { Modal } from "./Modal"
 
 const meta: Meta<typeof Modal> = {
   title: "UI/Modal",

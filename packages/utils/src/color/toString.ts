@@ -1,5 +1,5 @@
-import { ColorInfo } from "./analyze"
 import { clamp, round } from "../math"
+import { ColorInfo } from "./analyze"
 
 export const toString = ({ type, value: { red, green, blue }, alpha }: ColorInfo): string => {
   if (type === "hex") {

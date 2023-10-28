@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
+import { Meta, StoryFn } from "@storybook/react"
 
-import { Showcase } from "./Showcase"
 import { Palette, Radius } from "../../theme"
+import { Showcase } from "./Showcase"
 
 const meta: Meta<typeof Showcase> = {
   title: "UI/Showcase",

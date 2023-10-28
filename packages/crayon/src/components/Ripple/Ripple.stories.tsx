@@ -1,7 +1,7 @@
-import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
+import { Meta, StoryFn } from "@storybook/react"
 
-import { Mixin, Palette, Radius, ColorVariant } from "../../theme"
+import { ColorVariant, Mixin, Palette, Radius } from "../../theme"
 import { Ripple } from "./Ripple"
 
 const meta: Meta<typeof Ripple> = {

@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react"
 
-import { Thumb } from "./Thumb"
 import { ColorVariant } from "../../theme"
+import { Thumb } from "./Thumb"
 
 const meta: Meta<typeof Thumb> = {
   title: "UI/Thumb",

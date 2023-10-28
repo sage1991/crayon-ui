@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
 
-import { Fade } from "./Fade"
 import { Switch } from "../../Switch"
+import { Fade } from "./Fade"
 
 const meta: Meta<typeof Fade> = {
   title: "Transition/Fade",

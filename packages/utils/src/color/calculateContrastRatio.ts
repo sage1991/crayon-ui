@@ -1,5 +1,5 @@
-import { luminance } from "./luminance"
 import { analyze } from "./analyze"
+import { luminance } from "./luminance"
 
 // reference: https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 export const calculateContrastRatio = (color1: string, color2: string) => {

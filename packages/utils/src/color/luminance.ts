@@ -1,6 +1,6 @@
-import { RgbColorValue } from "./rgb"
-import { normalize } from "./normalize"
 import { round } from "../math"
+import { normalize } from "./normalize"
+import { RgbColorValue } from "./rgb"
 
 // reference: https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 export const luminance = (value: RgbColorValue) => {

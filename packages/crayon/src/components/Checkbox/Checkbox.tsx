@@ -1,11 +1,10 @@
-import { forwardRef, InputHTMLAttributes } from "react"
 import { CheckBoxOutlineBlankRounded, CheckBoxRounded } from "@crayon-ui/icons"
+import { forwardRef, InputHTMLAttributes } from "react"
 
 import { ColorVariant } from "../../theme"
-import { useCheckbox } from "./useCheckbox"
 import { Ripple } from "../Ripple"
-
 import { CheckboxRoot, Input } from "./Checkbox.styled"
+import { useCheckbox } from "./useCheckbox"
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant

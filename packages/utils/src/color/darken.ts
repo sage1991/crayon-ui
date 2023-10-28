@@ -1,7 +1,7 @@
-import { hsl } from "./hsl"
-import { rgb } from "./rgb"
 import { clamp } from "../math"
 import { analyze } from "./analyze"
+import { hsl } from "./hsl"
+import { rgb } from "./rgb"
 import { toString } from "./toString"
 
 export const darken = (source: string, coefficient: number = 0.15) => {

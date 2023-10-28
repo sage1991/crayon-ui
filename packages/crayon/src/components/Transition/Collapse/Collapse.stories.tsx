@@ -1,10 +1,10 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
-import { css } from "@emotion/react"
 
-import { Collapse } from "./Collapse"
-import { Switch } from "../../Switch"
 import { Palette, Radius } from "../../../theme"
+import { Switch } from "../../Switch"
+import { Collapse } from "./Collapse"
 
 const meta: Meta<typeof Collapse> = {
   title: "Transition/Collapse",

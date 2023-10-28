@@ -1,7 +1,7 @@
 import { FC } from "react"
 
-import { TransitionProps } from "../types"
 import { TweenTransition } from "../TweenTransition"
+import { TransitionProps } from "../types"
 
 const animation = {
   begin: {

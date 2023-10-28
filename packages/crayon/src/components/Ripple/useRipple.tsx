@@ -1,10 +1,9 @@
+import { distance } from "@crayon-ui/utils"
 import { AnimationEvent, PointerEvent, useCallback, useRef, useState } from "react"
 
 import { useMeasure } from "../../hooks"
 import { ColorVariant } from "../../theme"
-
 import { fadeOut, RippleEffect } from "./Ripple.styled"
-import { distance } from "@crayon-ui/utils"
 
 interface Props {
   color?: ColorVariant

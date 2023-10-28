@@ -1,14 +1,13 @@
+import { isServerSide } from "@crayon-ui/utils"
+import { Placement } from "@popperjs/core/lib/enums"
+import { Modifier } from "@popperjs/core/lib/types"
 import { cloneElement, ComponentType, FC, ReactNode, useState } from "react"
 import { createPortal } from "react-dom"
 import { usePopper } from "react-popper"
-import { Placement } from "@popperjs/core/lib/enums"
-import { Modifier } from "@popperjs/core/lib/types"
-import { isServerSide } from "@crayon-ui/utils"
 
 import { useForkElementRef } from "../../hooks"
 import { ColorVariant } from "../../theme"
 import { Fade, TransitionProps } from "../Transition"
-
 import { Arrow, Root } from "./Tooltip.styled"
 
 interface Props {

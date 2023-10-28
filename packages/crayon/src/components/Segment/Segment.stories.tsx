@@ -1,9 +1,9 @@
-import { Meta, StoryFn } from "@storybook/react"
-
-import { Segments } from "./Segments"
-import { Segment } from "./Segment"
 import { css } from "@emotion/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { useState } from "react"
+
+import { Segment } from "./Segment"
+import { Segments } from "./Segments"
 
 const meta: Meta<typeof Segments> = {
   title: "UI/Segment",

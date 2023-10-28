@@ -1,6 +1,6 @@
+import { analyze } from "./analyze"
 import { darken } from "./darken"
 import { hsl } from "./hsl"
-import { analyze } from "./analyze"
 
 describe("darken", () => {
   it("should darken color", () => {

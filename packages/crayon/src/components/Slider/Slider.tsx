@@ -2,10 +2,9 @@ import { forwardRef, InputHTMLAttributes, useRef } from "react"
 
 import { useForkElementRef } from "../../hooks"
 import { ColorVariant } from "../../theme"
-import { useSlider } from "./useSlider"
 import { Thumb } from "../Thumb"
-
-import { Input, Rail, SliderRoot, Point, ThumbContainer, Track } from "./Slider.styled"
+import { Input, Point, Rail, SliderRoot, ThumbContainer, Track } from "./Slider.styled"
+import { useSlider } from "./useSlider"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant

@@ -1,6 +1,6 @@
+import { clamp } from "../math"
 import { analyze } from "./analyze"
 import { toString } from "./toString"
-import { clamp } from "../math"
 
 export const alpha = (color: string, opaque: number = 0.15) => {
   const { type, value } = analyze(color)

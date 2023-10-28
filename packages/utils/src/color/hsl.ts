@@ -1,6 +1,6 @@
-import { RgbColorValue } from "./rgb"
-import { normalize } from "./normalize"
 import { round } from "../math"
+import { normalize } from "./normalize"
+import { RgbColorValue } from "./rgb"
 
 export interface HSLColorValue {
   hue: number // 색조 (0 ~ 360 degree)

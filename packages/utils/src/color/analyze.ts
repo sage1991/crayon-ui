@@ -1,5 +1,5 @@
-import { RgbColorValue } from "./rgb"
 import { clamp, round } from "../math"
+import { RgbColorValue } from "./rgb"
 
 export interface ColorInfo {
   type: "rgb" | "rgba" | "hex"

@@ -1,9 +1,9 @@
-import { FC } from "react"
 import { css } from "@emotion/react"
+import { FC } from "react"
 import { Transition } from "react-transition-group"
 
-import { TransitionProps } from "../types"
 import { useMeasure } from "../../../hooks"
+import { TransitionProps } from "../types"
 
 interface Props extends TransitionProps {}
 

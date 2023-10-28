@@ -1,5 +1,5 @@
-import { hsl } from "./hsl"
 import { analyze } from "./analyze"
+import { hsl } from "./hsl"
 import { lighten } from "./lighten"
 
 describe("lighten", () => {

@@ -1,7 +1,6 @@
-import { Children, ComponentProps, FC, HTMLAttributes, ReactElement, MouseEvent } from "react"
+import { Children, ComponentProps, FC, HTMLAttributes, MouseEvent, ReactElement } from "react"
 
 import { Segment } from "./Segment"
-
 import { Container, Root } from "./Segments.styled"
 
 type SegmentButtonElement = ReactElement<ComponentProps<typeof Segment>>

@@ -1,5 +1,5 @@
-import { HSLColorValue } from "./hsl"
 import { round } from "../math"
+import { HSLColorValue } from "./hsl"
 
 export interface RgbColorValue {
   red: number

@@ -1,12 +1,11 @@
-import { FC, InputHTMLAttributes } from "react"
 import { css } from "@emotion/react"
+import { FC, InputHTMLAttributes } from "react"
 
-import { Thumb } from "../Thumb"
 import { ColorVariant, Palette } from "../../theme"
 import { AspectRatio } from "../AspectRatio"
-import { useSwitch } from "./useSwitch"
-
+import { Thumb } from "../Thumb"
 import { Input, SwitchRoot } from "./Switch.styled"
+import { useSwitch } from "./useSwitch"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   color?: ColorVariant

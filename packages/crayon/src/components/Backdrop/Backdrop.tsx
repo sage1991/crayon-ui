@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from "react"
 
 import { Fade } from "../Transition"
-
 import { BackdropRoot } from "./Backdrop.styled"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

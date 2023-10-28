@@ -1,5 +1,5 @@
-import { FC, memo } from "react"
 import { css, Global, useTheme } from "@emotion/react"
+import { FC, memo } from "react"
 
 export const DefaultGlobalStyle: FC = memo(() => {
   const { typography, palette } = useTheme()

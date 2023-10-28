@@ -21,7 +21,8 @@
     "build:types": "run -T ts-node ../../scripts/generateTypes.ts",
     "build:storybook": "yarn run -T sb build",
     "test:types": "tsc --noEmit",
-    "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts"
+    "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts",
+    "lint": "run -T eslint --ext .tsx,.ts --fix ./src/**"
   },
   "dependencies": {
     "@crayon-ui/icons": "^0.0.2",

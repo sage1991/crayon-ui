@@ -1,10 +1,10 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useRef, useState } from "react"
-import { css } from "@emotion/react"
 
-import { Slider } from "./Slider"
 import { Mixin } from "../../theme"
 import { Button } from "../Button"
+import { Slider } from "./Slider"
 
 const meta: Meta<typeof Slider> = {
   title: "UI/Slider",

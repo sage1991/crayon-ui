@@ -1,10 +1,10 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
-import { css } from "@emotion/react"
 
-import { Focus } from "./Focus"
-import { Switch } from "../../Switch"
 import { Palette, Radius } from "../../../theme"
+import { Switch } from "../../Switch"
+import { Focus } from "./Focus"
 
 const meta: Meta<typeof Focus> = {
   title: "Transition/Focus",

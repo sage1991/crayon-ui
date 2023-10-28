@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren } from "react"
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react"
+import { FC, PropsWithChildren } from "react"
 
 import { CrayonTheme, theme as defaultTheme } from "../theme"
 

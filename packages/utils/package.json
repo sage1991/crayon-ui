@@ -21,6 +21,7 @@
     "build:commonjs": "run -T ts-node ../../scripts/build.ts commonjs",
     "build:types": "run -T ts-node ../../scripts/generateTypes.ts",
     "test:types": "tsc --noEmit",
-    "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts"
+    "generate-package-json": "run -T ts-node ../../scripts/generatePackageJson.ts",
+    "lint": "run -T eslint --ext .tsx,.ts --fix ./src/**"
   }
 }

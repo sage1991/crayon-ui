@@ -1,10 +1,10 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
-import { css } from "@emotion/react"
 
 import { Mixin, Palette, Radius } from "../../theme"
-import { AspectRatio } from "./AspectRatio"
 import { Slider } from "../Slider"
+import { AspectRatio } from "./AspectRatio"
 
 const meta: Meta<typeof AspectRatio> = {
   title: "UI/AspectRatio",

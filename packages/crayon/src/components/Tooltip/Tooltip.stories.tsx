@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react"
 import { css } from "@emotion/react"
+import { Meta, StoryFn } from "@storybook/react"
 
-import { Tooltip } from "./Tooltip"
 import { Mixin } from "../../theme"
+import { Tooltip } from "./Tooltip"
 
 const meta: Meta<typeof Tooltip> = {
   title: "UI/Tooltip",

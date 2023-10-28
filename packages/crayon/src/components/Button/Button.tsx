@@ -2,7 +2,6 @@ import { ButtonHTMLAttributes, FC } from "react"
 
 import { ColorVariant } from "../../theme"
 import { Ripple } from "../Ripple"
-
 import { ButtonRoot } from "./Button.styled"
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

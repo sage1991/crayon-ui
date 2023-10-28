@@ -1,10 +1,10 @@
+import { css } from "@emotion/react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ChangeEvent, useState } from "react"
-import { css } from "@emotion/react"
 
-import { Slide } from "./Slide"
-import { Switch } from "../../Switch"
 import { Mixin, Palette, Radius } from "../../../theme"
+import { Switch } from "../../Switch"
+import { Slide } from "./Slide"
 
 const meta: Meta<typeof Slide> = {
   title: "Transition/Slide",

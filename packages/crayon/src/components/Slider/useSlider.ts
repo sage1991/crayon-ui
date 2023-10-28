@@ -1,9 +1,9 @@
-import { RefObject, useCallback, useMemo } from "react"
+import { clamp, near, ratio } from "@crayon-ui/utils"
 import { useSpring } from "@react-spring/web"
 import { useDrag } from "@use-gesture/react"
-import { clamp, near, ratio } from "@crayon-ui/utils"
+import { RefObject, useCallback, useMemo } from "react"
 
-import { useIsExist, useMeasure, useIsomorphicLayoutEffect } from "../../hooks"
+import { useIsExist, useIsomorphicLayoutEffect, useMeasure } from "../../hooks"
 
 const DEFAULT_MINIMUM = 0
 const DEFAULT_MAXIMUM = 100

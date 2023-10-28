@@ -1,12 +1,11 @@
+import { isServerSide } from "@crayon-ui/utils"
+import { css } from "@emotion/react"
 import { ComponentType, FC, HTMLAttributes, MouseEventHandler, ReactNode } from "react"
 import { createPortal } from "react-dom"
-import { css } from "@emotion/react"
 import { Transition } from "react-transition-group"
-import { isServerSide } from "@crayon-ui/utils"
 
 import { Backdrop } from "../Backdrop"
 import { Fade, TransitionProps } from "../Transition"
-
 import { ModalContents, ModalRoot } from "./Modal.styled"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

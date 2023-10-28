@@ -1,5 +1,5 @@
 import { CrayonTheme } from "./@types"
-import { Palette, Font, ZIndex } from "./styles"
+import { Font, Palette, ZIndex } from "./styles"
 
 export const theme: CrayonTheme = {
   palette: {
