@@ -12,10 +12,10 @@ interface Props {
 }
 
 export const Ripple: FC<Props> = memo(({ children, ...props }) => {
-  const { bind, ripples } = useRipple(props)
+  const { bind, ripple } = useRipple(props)
   return (
     <RippleRoot {...bind()}>
-      {ripples}
+      {ripple}
       {children}
     </RippleRoot>
   )
