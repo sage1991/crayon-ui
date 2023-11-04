@@ -1,5 +1,11 @@
 # @crayon-ui/crayon
 
+## 0.0.4
+
+### Patch Changes
+
+- e3a91d7: Improve ripple for touch device
+
 ## 0.0.3
 
 ### Patch Changes
