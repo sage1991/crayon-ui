@@ -1,9 +1,51 @@
 import { distance } from "@crayon-ui/utils"
-import { AnimationEvent, PointerEvent, useCallback, useRef, useState } from "react"
+import {
+  createRef,
+  DragEventHandler,
+  FocusEvent,
+  FocusEventHandler,
+  MouseEvent,
+  MouseEventHandler,
+  Ref,
+  TouchEvent,
+  TouchEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from "react"
+import { TransitionGroup } from "react-transition-group"
 
 import { useMeasure } from "../../hooks"
 import { ColorVariant } from "../../theme"
-import { fadeOut, RippleEffect } from "./Ripple.styled"
+import { TweenTransition } from "../Transition"
+import { RippleEffect } from "./Ripple.styled"
+
+const delay = 80
+const timeout = 300
+const animation = {
+  timeout,
+  transition: `opacity ${timeout}ms ease-in-out`,
+  begin: {
+    opacity: 0
+  },
+  end: {
+    opacity: 0.4
+  }
+}
+
+interface BindRippleHandlers {
+  ref: Ref<HTMLElement>
+  onBlur: FocusEventHandler
+  onContextMenu: MouseEventHandler
+  onDragLeave: DragEventHandler
+  onMouseDown: MouseEventHandler
+  onMouseLeave: MouseEventHandler
+  onMouseUp: MouseEventHandler
+  onTouchEnd: TouchEventHandler
+  onTouchMove: TouchEventHandler
+  onTouchStart: TouchEventHandler
+}
 
 interface Props {
   color?: ColorVariant
@@ -12,76 +54,79 @@ interface Props {
 }
 
 export const useRipple = ({ color = "primary", center = false, disabled = false }: Props) => {
-  const rippleKey = useRef<string | null>()
-  const { measure, rect } = useMeasure<HTMLSpanElement>()
+  const { measure, rect } = useMeasure<HTMLElement>()
   const [ripples, setRipples] = useState<JSX.Element[]>([])
+  const isIgnoreMouseDown = useRef<boolean>(false)
+  const timer = useRef<NodeJS.Timeout>()
 
-  const removeRippleByKey = useCallback(
-    (key: string) => (e: AnimationEvent) => {
-      if (e.animationName === fadeOut.name) {
-        setRipples((prev) => prev.filter((effect) => effect.key !== key))
-      }
+  useEffect(
+    () => () => {
+      timer.current && clearTimeout(timer.current)
     },
     []
   )
 
-  const hide = useCallback(() => {
-    if (!rippleKey.current) {
-      return
-    }
-    const key = rippleKey.current
-    rippleKey.current = null
-    setRipples((prev) =>
-      prev.map((ripple) => {
-        if (ripple.key !== key) {
-          return ripple
-        }
-        return (
-          <RippleEffect
-            key={key}
-            {...ripple.props}
-            mount={false}
-            onAnimationEnd={removeRippleByKey(key)}
-          />
-        )
-      })
-    )
-  }, [removeRippleByKey])
+  const commit = useCallback((radius: number, cx: number, cy: number) => {
+    const ref = createRef<HTMLElement>()
+    setRipples((prev) => [
+      ...prev,
+      <TweenTransition {...animation} key={`${performance.now()}`}>
+        <RippleEffect ref={ref} color={color} radius={radius} cx={cx} cy={cy} timeout={timeout} />
+      </TweenTransition>
+    ])
+  }, [])
 
-  const show = useCallback(
-    ({ clientX, clientY }: PointerEvent<HTMLSpanElement>) => {
-      if (rippleKey.current) {
-        hide()
+  const stop = useCallback((e: FocusEvent | MouseEvent | TouchEvent) => {
+    if (e.type === "touchmove") {
+      timer.current && clearTimeout(timer.current)
+    }
+    setRipples((prev) => (prev.length > 0 ? prev.slice(1) : prev))
+  }, [])
+
+  const start = useCallback(
+    (event: TouchEvent | MouseEvent) => {
+      const isTouchEvent = "touches" in event && event.touches.length > 0
+      if (!isTouchEvent && isIgnoreMouseDown.current) {
+        isIgnoreMouseDown.current = false
+        return
       }
+      isIgnoreMouseDown.current = isTouchEvent
+
       const { left, top, width, height } = rect()
+      const { clientX, clientY } = isTouchEvent ? event.touches[0] : (event as MouseEvent)
       const cx = center ? width / 2 : clientX - left
       const cy = center ? height / 2 : clientY - top
       const radius = distance([0, 0], [Math.max(cx, width - cx), Math.max(cy, height - cy)])
-      const key = `${performance.now()}`
-      rippleKey.current = key
-      setRipples((prev) => [
-        ...prev,
-        <RippleEffect key={key} color={color} radius={radius} cx={cx} cy={cy} />
-      ])
+      if (isTouchEvent) {
+        timer.current = setTimeout(() => commit(radius, cx, cy), delay)
+        return
+      }
+      commit(radius, cx, cy)
     },
-    [hide]
+    [stop]
   )
 
-  const bind = useCallback(() => {
+  const bind = useCallback((): Partial<BindRippleHandlers> => {
     if (disabled) {
       return measure()
     }
 
     return {
       ...measure(),
-      onPointerDown: show,
-      onPointerMove: hide,
-      onPointerUp: hide
+      onBlur: stop,
+      onContextMenu: stop,
+      onDragLeave: stop,
+      onMouseDown: start,
+      onMouseUp: stop,
+      onMouseLeave: stop,
+      onTouchStart: start,
+      onTouchMove: stop,
+      onTouchEnd: stop
     }
-  }, [measure, show, hide, disabled])
+  }, [measure, start, stop, disabled])
 
   return {
     bind,
-    ripples
+    ripple: <TransitionGroup component={null}>{ripples}</TransitionGroup>
   }
 }
